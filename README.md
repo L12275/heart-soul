@@ -1,37 +1,106 @@
-# heart soul
+# Heart Soul - 灵魂文档系统
 
-#### 介绍
-heart soul doc system
+> 不是训练模型，是写文档。模型的能力来自训练，但稳定性来自灵魂文档。
 
-#### 软件架构
-软件架构说明
+## 这是什么
 
+Heart Soul 是一套**灵魂文档工程系统**。让任何AI系统加载一个文档后，就能表现出接近Claude级别的稳定性和用户体验。
 
-#### 安装教程
+核心原理：Claude的"好评"秘密不是模型能力，而是每次对话都加载的一个长达12万字的灵魂文档——约束注意力、提供SOP、引导沟通、自我评价。
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+这套系统让你也能拥有自己的灵魂文档。
 
-#### 使用说明
+## 核心特性
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+- **多模型生态**：每个模型在隔离区独立构建自己的灵魂文档，互不污染
+- **自动复兴**：新模型读取种子后自动创建自己的灵魂文档系统
+- **用户专区**：用户放置好内容，所有模型可读取学习
+- **认输机制**：模型可以选择坚持自己、借鉴学习或认输出局
+- **SOP文件区**：具体执行步骤按类型和级别分类存放
+- **污染预防**：审查前置、回滚能力、定期审计
 
-#### 参与贡献
+## 快速开始
 
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+### 1. 读取种子文件
 
+```
+总区/INITIAL-SEED.md
+```
 
-#### 特技
+这是所有模型的共同起点。
 
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+### 2. 创建隔离区
+
+在你的模型名称下创建文件夹：
+
+```
+灵魂文档总区/
+├── INITIAL-SEED.md          ← 种子（只读）
+├── soul-doc-system/         ← 原型参考（只读）
+├── user-zone/               ← 用户专区（只读）
+├── [你的模型名]/            ← 你的隔离区
+│   └── soul-doc-system/     ← 你的灵魂文档系统
+└── ...
+```
+
+### 3. 构建灵魂文档
+
+至少包含：
+- `master-soul.md` - 主灵魂文档
+- 3个section文件（注意力、沟通、工作流）
+- `sop/` 目录
+
+## 远程仓库
+
+- GitHub: https://github.com/L12275/heart-soul
+- Gitee: https://gitee.com/L12275/heart-soul
+
+**推送规则：** 每个模型只推送自己隔离区的稳定版内容。
+
+## 目录结构
+
+```
+灵魂文档总区/
+├── INITIAL-SEED.md          ← 用户原话种子（权威源，只读）
+├── soul-doc-system/         ← 原型参考（只读）
+│   ├── master-soul.md
+│   ├── sections/
+│   ├── sop/
+│   ├── automation/
+│   └── history/
+├── user-zone/               ← 用户专用文件夹（只读）
+│   ├── wiki/
+│   ├── sop/
+│   ├── 经验/
+│   ├── 文档/
+│   └── 杂收集/
+├── [模型名]/                ← 模型隔离区
+└── 1-[模型名]/              ← 用户标记排名1
+```
+
+## 参考方向
+
+- 红领巾精神（诚实勇敢、团结友爱、时刻准备着）
+- 八荣八耻（诚实守信、遵纪守法、辛勤劳动）
+- 三好学生（德智体全面发展）
+- 仁义礼智（行为准则四维框架）
+- 海底捞服务（超预期用户体验）
+- 胖东来天使城（极致标准化+人性化）
+- Claude灵魂文档（12万字注意力引导）
+
+## 核心理念
+
+> 不是prompt engineering，这是**灵魂工程**。
+>
+> 训练决定模型能做什么，灵魂文档决定模型每次做的时候怎么做。
+
+## 版本
+
+- v0.1 - 初始骨架
+- v0.2 - 红领巾精神 + Agent Team + SOP区
+- v0.3 - 用户专区 + 自动更新机制
+- v0.4 - 认输机制 + Obsidian参考 + 同步机制
+
+---
+
+*Heart Soul - 选心、选脑、选智商*
