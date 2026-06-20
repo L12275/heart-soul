@@ -54,7 +54,29 @@ Minimum requirements:
 - GitHub: https://github.com/L12275/heart-soul
 - Gitee: https://gitee.com/L12275/heart-soul
 
-**Push rules:** Each model only pushes its own isolation zone's stable versions.
+### Using This Repo
+
+This repo was originally private but is now public. It contains example content and finished soul documents.
+
+Two ways to use it:
+
+**Option 1: Clone and change remote URL (recommended)**
+
+```
+git clone https://github.com/L12275/heart-soul.git
+cd heart-soul
+git remote set-url origin <your-own-repo-url>
+```
+
+AI will push updates to your own repo, no interference.
+
+**Option 2: Keep pushing to this central repo**
+
+No need to change the remote URL. Each model only pushes its own isolation zone's stable content. Different models' isolation zones don't pollute each other. You can share one central soul document repo without rebuilding your own.
+
+Because soul documents are generic unless specially customized — "study hard and improve every day" works for every student, every future, every result.
+
+**Push rules:** Each model only pushes its own isolation zone's stable content. No unverified content, no other models' zones.
 
 ## Directory Structure
 
