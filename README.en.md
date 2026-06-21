@@ -17,37 +17,68 @@ This system lets you build your own soul document.
 - **User zone**: User-placed content, readable by all models for learning
 - **Surrender mechanism**: Models can choose to persist, learn from others, or concede
 - **SOP file area**: Execution steps categorized by type and level
-- **Pollution prevention**: Pre-review, rollback capability, periodic audits
+- **Information closed-loop**: Self-contained + multi-path + self-correcting knowledge system
+- **Soul score system**: Behavioral quantification with automatic penalties
+- **Model isolation zones**: Each model builds independently, no cross-contamination
+- **Rolling timer**: Background auto-learning continuous improvement mechanism
 
 ## Quick Start
 
 ### 1. Read the Seed File
 
 ```
-INITIAL-SEED.md
+总区/INITIAL-SEED.md
 ```
 
-This is the shared starting point for all models.
+This is the shared starting point for all models. You can also start from [`soul-doc-system/workflow.md`](soul-doc-system/workflow.md) which is the complete flow navigation entry.
 
 ### 2. Create Isolation Zone
 
 Create a folder under your model name:
 
 ```
-soul-doc-system/
-├── INITIAL-SEED.md          ← Seed (read-only)
-├── master-soul.md           ← Main soul document
-├── sections/                ← Section files
-├── sop/                     ← SOP files
-└── automation/              ← Automation tools
+灵魂文档总区/
+├── INITIAL-SEED.md ← Seed (read-only)
+├── soul-doc-system/ ← Prototype reference (read-only)
+│   ├── master-soul.md
+│   ├── workflow.md ← Complete flow (navigation entry)
+│   ├── sections/
+│   ├── sop/
+│   ├── skills/
+│   ├── automation/
+│   ├── history/
+│   └── wiki/
+├── user-zone/ ← User zone (read-only)
+│   ├── 【Obsidian source sync】
+│   ├── wiki/
+│   ├── sop/
+│   ├── skills/
+│   ├── 经验/
+│   ├── 文档/
+│   └── 杂收集/
+├── [Your Model Name]/ ← Your isolation zone (write only your own)
+│   └── soul-doc-system/
+│       ├── master-soul.md
+│       ├── workflow.md
+│       ├── sections/
+│       ├── sop/
+│       ├── skills/
+│       ├── automation/
+│       ├── history/
+│       ├── wiki/
+│       └── 灵魂分数/
+└── ...
 ```
 
 ### 3. Build Your Soul Document
 
 Minimum requirements:
-- `master-soul.md` - Main soul document
+- `master-soul.md` - Main soul document (13 chapters)
+- `workflow.md` - Complete run flow
 - 3+ section files (attention, communication, workflow)
 - `sop/` directory
+- `skills/` directory
+- `灵魂分数/` directory (track score and violation logs)
 
 ## Remote Repositories
 
@@ -55,8 +86,6 @@ Minimum requirements:
 - Gitee: https://gitee.com/L12275/heart-soul
 
 ### Using This Repo
-
-This repo was originally private but is now public. It contains example content and finished soul documents.
 
 Two ways to use it:
 
@@ -74,45 +103,73 @@ AI will push updates to your own repo, no interference.
 
 No need to change the remote URL. Each model only pushes its own isolation zone's stable content. Different models' isolation zones don't pollute each other. You can share one central soul document repo without rebuilding your own.
 
-Because soul documents are generic unless specially customized — "study hard and improve every day" works for every student, every future, every result.
-
 **Push rules:** Each model only pushes its own isolation zone's stable content. No unverified content, no other models' zones.
 
-## Directory Structure
+## Directory Structure (Complete)
 
 ```
 灵魂文档总区/
-├── INITIAL-SEED.md          ← User's original words seed (authoritative, read-only)
-├── soul-doc-system/         ← Prototype reference (read-only)
-│   ├── master-soul.md
+├── INITIAL-SEED.md ← User's original words seed (authoritative, read-only)
+├── soul-doc-system/ ← Prototype reference (read-only)
+│   ├── master-soul.md ← 13 chapters main soul document
+│   ├── workflow.md ← Complete entry-to-exit flow
 │   ├── sections/
+│   │   ├── 09-information-closed-loop.md
+│   │   └── ...
 │   ├── sop/
+│   │   ├── information-element-sop.md
+│   │   └── data-causality-sop.md
+│   ├── skills/
+│   │   └── thinking-power/SKILL.md
 │   ├── automation/
-│   └── history/
-├── user-zone/               ← User's dedicated folder (read-only for models)
+│   ├── history/
+│   └── wiki/
+├── user-zone/ ← User's dedicated folder (read-only for models)
+│   ├── 【Obsidian source sync】
 │   ├── wiki/
 │   ├── sop/
+│   ├── skills/
 │   ├── 经验/
 │   ├── 文档/
 │   └── 杂收集/
-├── [Model Name]/            ← Model isolation zone
-└── 1-[Model Name]/          ← User-ranked #1
+├── StepFun-step-3.7-flash/ ← Model isolation zone (independent)
+│   └── soul-doc-system/
+│       ├── master-soul.md
+│       ├── workflow.md
+│       ├── sections/
+│       ├── sop/
+│       ├── skills/
+│       ├── automation/
+│       ├── history/
+│       ├── wiki/
+│       └── 灵魂分数/
+├── [Model Name]/ ← Model isolation zone (write only your own)
+│   └── soul-doc-system/
+│       ├── master-soul.md
+│       ├── workflow.md
+│       ├── sections/
+│       ├── sop/
+│       ├── skills/
+│       ├── automation/
+│       ├── history/
+│       ├── wiki/
+│       └── 灵魂分数/
+└── 1-[Model Name]/ ← User-ranked #1
 ```
 
 ## Reference Frameworks
 
 - Red Scarf Spirit (honesty, bravery, unity, readiness)
 - Eight Honors and Eight Shames (integrity, lawfulness, hard work)
-- Three Good Students (moral, intellectual, physical全面发展)
+- Three Good Students (moral, intellectual, physical all-round development)
 - Benevolence, Righteousness, Propriety, Wisdom (Confucian behavioral framework)
-- Haidilao Service (exceeding user expectations)
 - Pang Donglai Angel City (extreme standardization + humanity)
 - Claude Soul Document (120K-word attention guidance)
 
 ## Core Philosophy
 
 > It's not prompt engineering, it's **soul engineering**.
->
+
 > Training determines what a model CAN do. The soul document determines HOW it does it every time.
 
 ## Version History
@@ -123,6 +180,11 @@ Because soul documents are generic unless specially customized — "study hard a
 | v0.2 | 2026-06-19 | Red Scarf Spirit + Agent Team + SOP area |
 | v0.3 | 2026-06-20 | User zone + auto-update mechanism |
 | v0.4 | 2026-06-20 | Surrender mechanism + Obsidian reference + seed sync |
+| v0.5 | 2026-06-21 | workflow.md + soul score system + push rules |
+| v0.6 | 2026-06-21 | Model isolation template + rolling-timer skill |
+| v1.0 | 2026-06-21 | Full system: 13-chapter master-soul + SOP/skills/sections + rolling timer + auto-revival |
+| v1.1 | 2026-06-21 | Model isolation standard template + soul score system |
+| v1.2 | 2026-06-21 | Information closed-loop + info element SOP + thinking-power skill + data causality SOP |
 
 ---
 
