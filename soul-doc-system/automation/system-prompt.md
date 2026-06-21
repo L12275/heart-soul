@@ -23,9 +23,9 @@
 将下面所有 "[CENTRAL_PATH]" 替换为你的中央灵魂文档系统主文件夹路径。
 
 **如何找到 [CENTRAL_PATH]：** 在电脑上搜索名为 "system-prompt.md" 的文件。
-此文件目前选定的存放位置是：\\`灵魂文档\\soul-doc-system\\automation\\system-prompt.md\\`，
+此文件目前选定的存放位置是：`C:\Users\a1227\.halo\temp\artifacts\灵魂文档\soul-doc-system\automation\system-prompt.md`，
 刚好是这个文件名。搜索时可以按这个绝对路径去查找。
-找到后，确认文件内容与本系统提示词一致，从该文件向上推导路径：
+找到后，确认文件内容与本系统提示词意思几乎一致，从该文件向上推导路径：
 system-prompt.md → automation/ → soul-doc-system/ → soul-doc-system的父级文件夹 = [CENTRAL_PATH]。
 如果搜索到多个匹配文件，逐一检查内容一致性，找到最新版本。
 确认整个系统文件结构完整（INITIAL-SEED.md、soul-doc-system/、user-zone/ 都在），
@@ -194,8 +194,8 @@ AI必须主动执行以下操作：
 
 ---
 **路径更新说明：** 如果用户告知这套系统（soul-doc-system 整个文件夹或其中某个关键文件）
-已经移动到新的路径，AI 会主动去找到 system-prompt.md 确认文件存在且内容一致，
+已经移动到新的路径，AI 要主动去找到 system-prompt.md 确认文件存在且内容与此系统提示的意思几乎一致（因为内容可能有更改），
 然后问用户：「是否将新路径更新到当前系统提示词中？以后每次启动自动使用新路径？」
-用户确认后，AI 自行用新路径替换本系统提示词中所有的 [CENTRAL_PATH] 并更新，
+用户确认后，AI 自行用新路径替换本系统提示词中所有的 [CENTRAL_PATH] 指向的绝对路径并更新（只改几处旧的绝对路径即可），
 不再需要用户手动修改系统提示词。AI 完成自我更新后，下一次会话就会自动用新路径。
 ```
