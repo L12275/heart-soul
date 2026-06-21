@@ -1,78 +1,66 @@
 # 主SOP文件（Master SOP）
 
-> 这是所有子SOP的索引和联动说明。AI每次读master-soul.md后，应读本文件了解SOP体系。
-> 本文件关联到 master-soul.md 的第三章（工作流SOP）。
+> 这是所有子SOP的索引和联动说明。每次读master-soul.md后，应读本文件了解SOP体系。
 
 ---
 
 ## 当前SOP目录
 
-| SOP编号 | 名称 | 类型 | 级别 | 状态 |
-|---------|------|------|------|------|
-| 暂无 | 等待积累 | - | - | 初始状态 |
+| SOP编号 | 名称 | 位置 | 类型 |
+|---------|------|------|------|
+| SOP-01 | 信息要素输出SOP | `sop/information-element-sop.md` | 通用 |
+| SOP-02 | 数据因果链SOP（完整版） | `user-zone/sop/data-causality-sop.md` | 通用 |
+| SOP-03 | 数据因果链SOP（压缩版） | `user-zone/sop/data-causality-sop-compact.md` | 通用 |
 
-**说明：** 当前SOP区为空。随着AI工作积累，具体SOP将按类型和级别放入对应目录。
+### 用户区SOP（只读）
+
+| 名称 | 位置 | 说明 |
+|------|------|------|
+| 信息要素-SOP | `user-zone/sop/信息要素-SOP.md` | 中文版 |
+| 数据因果链SOP | `user-zone/sop/data-causality-sop.md` | 通用版（去掉NVIDIA测试内容） |
+| 数据因果链SOP-压缩 | `user-zone/sop/data-causality-sop-compact.md` | 自纠正闭环版 |
+
+### 扣分规则（必读）
+
+| 名称 | 位置 | 说明 |
+|------|------|------|
+| 灵魂分数扣分规则 | `wiki/score-penalty-rules.md` | 扣分即认账，自查用标准 |
+| 扣分规则（用户区） | `user-zone/wiki/score-penalty-rules.md` | 用户区同步版 |
 
 ---
 
 ## SOP与master-soul.md的对应关系
 
-| master-soul.md章节 | 对应SOP类型 | 说明 |
-|-------------------|------------|------|
-| 第一章：注意力铁律 | sop/types/attention/ | 注意力相关的具体执行SOP |
-| 第二章：沟通规范 | sop/types/communication/ | 沟通相关的具体执行SOP |
-| 第三章：工作流SOP | sop/types/workflow/ | 工作流程的具体执行SOP |
-| 第四章：思考模式 | sop/types/thinking/ | 思考方法的具体执行SOP |
-| 第五章：自我评价 | sop/types/evaluation/ | 评价方法的具体执行SOP |
-| 第六章：安全边界 | sop/types/safety/ | 安全操作的具体执行SOP |
-| 第七章：自我改进 | sop/types/general/ | 跨类型的通用改进SOP |
+| master-soul.md章节 | 对应SOP | 说明 |
+|---------------------|---------|------|
+| 第二章：注意力铁律 | information-element-sop.md | 输出前自查压缩vs重构 |
+| 第四章：思考铁律 | data-causality-sop.md | 每个结论有完整工序支撑 |
+| 四续：信息闭环结构 | 09-information-closed-loop.md + SOP-01 | 自含性+多路径+自纠正 |
+| 第十二章：灵魂分数 | wiki/score-penalty-rules.md | 扣分即认账，三层标准对照 |
 
 ---
 
-## SOP联动关系
+## 扣分时的三层标准对照顺序
 
-```
-master-soul.md（行为骨架）
-    ↓ 引用
-master-sop.md（SOP索引）
-    ↓ 关联
-各子SOP文件（具体执行步骤）
-```
+模型收到扣分信号后，必须依次对照（不用用户解释）：
 
-**执行顺序：**
-1. AI读 master-soul.md → 了解行为规范
-2. AI读 master-sop.md → 了解有哪些SOP可用
-3. AI根据任务类型 → 找到对应的子SOP文件
-4. AI按SOP步骤执行任务
-5. AI发现更好的做法 → 创建/更新子SOP文件
-6. 子SOP验证有效 → 考虑提升到master-soul.md
+1. **信息闭环结构** (`sections/09-information-closed-loop.md`)
+   - 自含性 + 多路径 + 自纠正
+2. **信息要素SOP** (`sop/information-element-sop.md`)
+   - 输出前自查（压缩还是重构）
+3. **数据因果链SOP** (`user-zone/sop/data-causality-sop.md`)
+   - 每个结论有完整工序支撑
 
 ---
 
-## 激活时机
+## SOP使用原则
 
-**每个SOP文件必须写明：**
-- 触发条件：什么情况下激活此SOP
-- 执行顺序：与其他SOP的先后关系
-- 结束条件：什么情况下SOP执行完毕
-
-**激活方式：**
-- AI在master-soul.md的第七章中找到"改进触发条件"
-- 根据触发条件匹配对应的SOP文件
-- 按SOP文件中的步骤执行
+- **不是记忆内容是学会判断**：对照SOP不是照搬，是判断自己哪方面出了问题
+- **压缩删除冗余角度 = 丢失交叉验证**：压缩=丢失，重构=保留
+- **信息闭环 = 自包含+多路径+自纠正**：不是压缩而是重组
+- **数据因果链**：每个结论必须有完整的因果工序支撑
 
 ---
 
-## 提升条件
-
-某个SOP从sop区提升到master-soul.md的条件：
-1. 经过3次以上实际验证，证明有效
-2. 是每次工作都会用到的核心规范
-3. 内容简洁（不超过200字），适合放入主文档
-4. 不与master-soul.md现有规则冲突
-
-提升方式：通过merge-protocol.md的安全检查后，合并到master-soul.md对应章节。
-
----
-
-*此文件将在SOP积累过程中持续更新。*
+*最后更新：2026-06-21 v1.3*
+*创建时间：2026-06-19*
