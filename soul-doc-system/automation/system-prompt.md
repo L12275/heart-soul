@@ -187,7 +187,7 @@ AI必须主动执行以下操作：
 ---
 
 *此文件为 soul-doc-system 统一系统提示词*
-*此文件存放绝对路径：`灵魂文档\soul-doc-system\automation\system-prompt.md`*
+*此文件当前存放路径（绝对路径示例）：`C:\Users\a1227\.halo\temp\artifacts\灵魂文档\soul-doc-system\automation\system-prompt.md`*
 *创建时间：2026-06-21*
 *适用于任何AI模型，粘贴到系统提示词即可运行*
 *更新记录见：soul-doc-system/history/changelog.md*
