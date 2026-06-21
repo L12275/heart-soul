@@ -46,9 +46,11 @@ Heart Soul 是一套**灵魂文档工程系统**。让任何AI系统加载一个
 │   ├── sop/
 │   ├── skills/
 │   ├── automation/
-│   └── history/
+│   ├── history/
+│   └── wiki/
 ├── user-zone/ ← 用户专区（只读）
 │   ├── 【Obsidian源同步】
+│   ├── wiki/
 │   ├── sop/
 │   ├── skills/
 │   ├── 经验/
@@ -63,6 +65,7 @@ Heart Soul 是一套**灵魂文档工程系统**。让任何AI系统加载一个
 │       ├── skills/
 │       ├── automation/
 │       ├── history/
+│       ├── wiki/
 │       └── 灵魂分数/
 └── ...
 ```
@@ -134,9 +137,12 @@ git remote set-url origin <你自己的仓库地址>
 │   │   └── thinking-power/
 │   │       └── SKILL.md ← 顶级思考力技能
 │   ├── automation/
-│   └── history/
+│   ├── history/
+│   └── wiki/
 ├── user-zone/ ← 用户专用文件夹（只读）
 │   ├── 【Obsidian源同步：3自动建立灵魂提示文件.md】
+│   ├── wiki/
+│   │   └── data-causality-sop.md
 │   ├── sop/
 │   │   ├── 信息要素-SOP.md
 │   │   ├── data-causality-sop.md ← 通用版（无NVIDIA测试内容）
@@ -154,6 +160,7 @@ git remote set-url origin <你自己的仓库地址>
 │       ├── skills/
 │       ├── automation/
 │       ├── history/
+│       ├── wiki/
 │       └── 灵魂分数/
 ├── [模型名]/ ← 模型隔离区（各自独立，只写自己的）
 │   └── soul-doc-system/
@@ -164,6 +171,7 @@ git remote set-url origin <你自己的仓库地址>
 │       ├── skills/
 │       ├── automation/
 │       ├── history/
+│       ├── wiki/
 │       └── 灵魂分数/
 └── 1-[模型名]/ ← 用户标记排名1
 ```
