@@ -4,99 +4,104 @@
 
 ---
 
-## 这是什么
-
-Claude模型好评的核心秘密不是模型能力，而是每次对话都加载的一个**灵魂文档**——长达12万字的注意力引导、工作流SOP、沟通规范和评价标准。
-
-这个项目让你也能拥有自己的灵魂文档：
-- **分板块管理**：规范写在多个section文件中，安全积累
-- **定期合并**：经过验证的规则自动合并到主文件
-- **自我改进**：AI发现更好的做法时，自动更新文档
-- **跨系统可移植**：复制文件夹到任何AI系统即可使用
-
----
-
-## 项目结构
+## 项目结构（完整）
 
 ```
 soul-doc-system/
-├── INITIAL-SEED.md          ← 项目种子（原始思考，只读）
-├── master-soul.md           ← 主灵魂文档（每次对话加载）
-├── sections/                ← 分板块文件（独立维护）
-│   ├── 00-architecture.md   ← 系统架构
-│   ├── 01-attention.md      ← 注意力引导
-│   ├── 02-communication.md  ← 沟通规范
-│   ├── 03-workflow.md       ← 工作流SOP
-│   ├── 04-thinking.md       ← 思考模式
-│   ├── 05-evaluation.md     ← 自我评价
-│   ├── 06-safety.md         ← 安全边界
-│   └── 07-self-improvement.md ← 自我改进协议
-├── automation/
-│   ├── self-edit-prompt.md  ← AI自我编辑提示词
-│   └── merge-protocol.md    ← 合并协议
-├── history/                 ← 版本历史
+├── master-soul.md          ← 主灵魂文档（每次对话加载）
+├── INITIAL-SEED.md         ← 项目种子（用户原话积累，只读）
+├── workflow.md             ← 工作流程总览
+├── sections/               ← 分板块文件
+│   ├── 00-architecture.md  ← 系统架构
+│   ├── 01-attention.md     ← 注意力引导
+│   ├── 02-communication.md ← 沟通规范
+│   ├── 03-workflow.md      ← 工作流SOP
+│   ├── 04-thinking.md      ← 思考模式
+│   ├── 05-evaluation.md    ← 自我评价（S/A/B/C）
+│   ├── 06-safety.md        ← 安全边界
+│   ├── 07-self-improvement.md ← 自我改进协议
+│   ├── 08-isolation.md     ← 模型隔离
+│   ├── 09-information-closed-loop.md ← 信息闭环
+│   ├── 10-sub-role-soul.md ← 子角色灵魂系统
+│   ├── 11-tools.md         ← 工具系统（CLI-Anything）
+│   ├── 12-discovery.md     ← 发现系统
+│   ├── 13-collection.md    ← 采集系统
+│   ├── 14-workbench.md     ← 工作台
+│   ├── 15-space.md         ← 空间
+│   └── 16-feedback.md      ← 反馈系统（【】交互）
+├── 深度研究/               ← 深度研究系统
+│   ├── README.md
+│   └── [YYYY-MM-DD_主题]/  ← 每个研究一个文件夹
+│       ├── sources/        ← 来源材料
+│       ├── notes/          ← 研究笔记
+│       ├── outputs/        ← 研究成果
+│       └── index.md        ← 研究索引
+├── desktop/                ← 大脑桌面
+│   ├── sticky-notes/       ← 便签（零碎提醒）
+│   ├── workflows/          ← 工作流模板
+│   ├── contacts/           ← 通讯录
+│   └── bookmarks/          ← 收藏夹
+├── production_space/       ← 生产空间
+│   └── 工作室/
+│       ├── 音乐工作台/
+│       │   ├── desktop/sticky-notes/
+│       │   ├── workflow/
+│       │   └── contacts/
+│       ├── 视频工作台/
+│       ├── 文章工作台/
+│       ├── 研究工作台/
+│       ├── 代码工作台/
+│       ├── 项目工作台/
+│       └── 科学工作台/
+├── git-tree/               ← Git合流管理
+│   ├── convergence/        ← 合流记录
+│   ├── history/            ← 提交历史
+│   └── remotes/            ← 远程仓库信息
+├── automation/             ← 自动化规则
+│   ├── system-prompt.md
+│   ├── self-edit-prompt.md
+│   └── roadmap.md
+├── history/                ← 版本历史
 │   └── changelog.md
-└── README.md                ← 本文件
+├── 灵魂分数/               ← 分数系统
+│   ├── SCORE.md
+│   ├── history.md
+│   ├── ledger.md
+│   └── penalties.md
+├── feedback/               ← 反馈目录
+│   └── 2026-06-23_F-001_*.md
+├── wiki/                   ← 知识库
+│   └── score-penalty-rules.md
+├── sop/                    ← SOP区
+│   └── master-sop.md
+├── skills/                 ← 技能区
+├── sub-role-souls/         ← 子角色灵魂系统
+│   ├── README.md
+│   └── 模板子角色/ ← 模板
+│       ├── master-soul.md
+│       ├── genome/README.md
+│       ├── sections/ (01-09)
+│       ├── vm/
+│       │   ├── memory/ (L0-L4 + insight-index)
+│       │   ├── log/ (年/月/日)
+│       │   ├── diary/ (年/月/日)
+│       │   └── product/ (研究类/执行类/文档类)
+│       ├── experience/ (proven/tested/Reference/suspected-hallucination)
+│       ├── skills/README.md
+│       ├── sop/README.md
+│       ├── automation/
+│       ├── wiki/
+│       └── 灵魂分数/
+└── README.md
 ```
 
 ---
 
 ## 快速开始
 
-### 1. 首次加载
-
-在AI对话中说：
-
-```
-加载 soul-doc-system，先读master-soul.md，然后开始工作。
-```
-
-### 2. 日常使用
-
-AI自动遵循master-soul.md中的规则。你不需要每次提醒。
-
-### 3. 发现改进点时
-
-AI会自动：
-1. 把改进点写入对应的section文件
-2. 标注"待验证"
-3. 同一场景出现3次后升级为通用规则
-4. 5条新规则积累后合并到master
-
-### 4. 跨系统移植
-
-复制整个`soul-doc-system/`文件夹到目标AI系统的workspace，按第1步加载即可。
+复制此文件夹到任何AI系统，让AI读取 `master-soul.md` 即可启动。
 
 ---
 
-## 核心设计理念
-
-| 设计选择 | 原因 |
-|---------|------|
-| 分文件管理 | 避免AI直接改主文件导致污染 |
-| section先验证再合并 | 规则需要经过实际使用验证 |
-| 主文件只读（仅通过merge） | 防止对话中实时修改污染核心 |
-| 每条规则必须具体 | 模糊规则=没有规则 |
-| 种子文件只读 | 保护项目起源和核心理念 |
-
----
-
-## 长期目标
-
-1. **短期**（v0.1-v0.5）：建立核心骨架，验证流程
-2. **中期**（v0.5-v1.0）：积累50+条经过验证的规则
-3. **长期**（v1.0+）：文档达到100+KB，涵盖所有工作场景，AI表现达到"无需用户纠正"级别
-
----
-
-## 版本历史
-
-| 版本 | 日期 | 变更 |
-|------|------|------|
-| v0.1 | 2026-06-19 | 初始骨架，8个section + master-soul + 自动化工具 |
-
----
-
-*项目状态：初始阶段，持续积累中*
-*创建者：用户 + AI Assistant 协作*
-*核心理念：模型能力来自训练，稳定性来自灵魂文档*
+*soul-doc-system/README.md*
+*v2.11*
