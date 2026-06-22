@@ -87,3 +87,8 @@ soul-doc-system/
 *工作台系统：sections/14-desktop.md*
 *创建时间：2026-06-23*
 *v2.8 修正：工作台≠办公桌，其他子系统已独立*
+
+
+## 更新：完整结构
+
+见 soul-doc-system/README.md 项目结构图
