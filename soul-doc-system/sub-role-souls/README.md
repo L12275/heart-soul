@@ -50,7 +50,7 @@
 │   │   └── 06-first-visit.md ← 首次进入观察（模型自写理解）
 │   ├── vm/
 │   │   ├── memory/context/
-│   │   │   └── L0-L4-corrected.md ← GA L0-L4设计说明
+│   │   │   └── L0-L4.md ← GA L0-L4设计说明
 │   │   ├── memory/
 │   │   │   └── insight-index.md ← L1洞察索引（≤30行，两级映射）
 │   │   ├── log/
