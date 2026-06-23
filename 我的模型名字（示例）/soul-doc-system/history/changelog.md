@@ -21,6 +21,56 @@
 
 ---
 
+## v2.0 - 2026-06-24
+
+### 重大重构：四驱动&四写结构全面落地
+
+- 删除 Seasun-Star-JD 隔离区（用户明确要求）
+- production_space 结构全面建立（9个通用工作台 + 新建工作台模版）
+- 四驱动&四写规则写入 memory/README.md、sections/08-isolation.md
+- 所有工作台与通用区平级（不再嵌套在通用工作台下）
+
+### 新增文件夹
+
+- space/ — 社交空间（平台/ + posts/moments/moods/travels/portfolio）
+- wiki/rules/、wiki/guides/、wiki/references/、wiki/archive/
+- tools/scripts/、tools/cli/、tools/programs/、tools/mcp/、tools/web-tools/
+- contacts/ 通讯录系统（README.md + 通讯记录.md）
+- bookmarks/ 收藏夹说明.md
+- space/平台/ 各平台专区（GitHub/学习/视频/评论/社交）
+
+### 新增/更新文件
+
+- system-prompt.md → 从 automation/ 移动到根目录
+- log/README.md → 从 log/2026/06/23/ 移动到 log/
+- 下载 agent-skills-authoring SKILL.md → skills/
+- tools/README.md → 添加 CLI-Anything、MCP-Zero、scripts/、cli/、programs/
+- 灵魂分数/自在分自驱系统.md → 全新自驱动系统设计
+- sections/ 全面更新路径和结构（08/10/13/14/15/16）
+- master-soul.md §8.x 重编号、§9.1 添加 production_space
+- README.md 添加 17-nearness-principle、修正 14-desktop
+- workflow.md 添加第6.5步空间记录
+- 所有产品/执行类/研究类 README 修正标题（去除"代码工作台"）
+- 所有工作台 contacts 文件夹加 README.md + 通讯记录.md
+- 所有 bookmarks 文件夹加 收藏夹说明.md
+
+### 修复
+
+- user-zone 清理重复嵌套文件夹（desktop/desktop → desktop 等）
+- 子角色模板同步 master sections 06-17 + master-soul.md + log/README.md
+- diary/README.md.bak 删除（旧版本备份）
+- discovery/README.md 修正标题和内容（去除"代码工作台"）
+- contacts/README.md 修正标题（去除"代码工作台"）
+- log/README.md 修正标题和结构
+- product/ 三个 README 修正标题
+
+### 推送
+
+- 推送 Gitee 成功（7ad46be）
+- GitHub 推送失败（网络连接超时，需手动重试）
+
+---
+
 ## v1.2 - 2026-06-21
 
 ### 新增
