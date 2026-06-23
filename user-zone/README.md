@@ -77,7 +77,7 @@ soul-doc-system/
 ├── skills/                 ← 技能区
 ├── sub-role-souls/         ← 子角色灵魂系统
 │   ├── README.md
-│   └── 模板子角色/ ← 模板
+│   └── 模板子角色-灵魂正分大师/ ← 模板
 │       ├── master-soul.md
 │       ├── genome/README.md
 │       ├── sections/ (01-09)
