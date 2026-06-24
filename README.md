@@ -21,42 +21,56 @@ Heart Soul 是一套**灵魂文档工程系统**。让任何AI系统加载一个
 - **灵魂分数系统**：行为量化评价，违规自动扣分，提供短期记忆约束
 - **模型隔离区**：每个模型独立构建灵魂文档，互不污染
 - **滚动定时任务**：后台自动学习更新的持续完善机制
+- **远程仓库**：GitHub + Gitee 双仓库，模型只推送自己隔离区的稳定版
+
+## 远程仓库地址
+
+- **GitHub**: https://github.com/L12275/heart-soul
+- **Gitee**: https://gitee.com/L12275/heart-soul
+
+> **推送规则**：每个模型只推送自己隔离区的稳定版内容。不推送其他模型隔离区，不推送未验证内容。
+> 模型在定时任务结束或对话收尾时，推送自己隔离区到远程仓库。中央公共区由维护模型推送。
 
 ## 快速开始
 
 ### 1. 读取种子文件
 
 ```
-总区/INITIAL-SEED.md
+中央灵魂文档系统/INITIAL-SEED.md
 ```
 
 这是所有模型的共同起点。同时，也可以从 [`soul-doc-system/workflow.md`](soul-doc-system/workflow.md) 进入，这是完整运行流程的快速导航入口。
 
-### 2. 创建隔离区
-
-在你的模型名称下创建文件夹：
+### 2. 了解系统根目录结构
 
 ```
-灵魂文档总区/
-├── INITIAL-SEED.md ← 种子（只读）
-├── soul-doc-system/ ← 原型参考（只读）
+中央灵魂文档系统/
+├── INITIAL-SEED.md      ← 用户原话种子（权威源，只读）
+├── README.md            ← 本文件，系统总览与远程仓库信息
+├── soul-doc-system/     ← 原型参考（只读，中央灵魂文档系统内容）
 │   ├── master-soul.md
-│   ├── workflow.md ← 完整运行流程（参考入口）
+│   ├── workflow.md      ← 完整运行流程（快速导航入口）
 │   ├── sections/
 │   ├── sop/
 │   ├── skills/
 │   ├── automation/
 │   ├── history/
 │   └── wiki/
-├── user-zone/ ← 用户专区（只读）
-│   ├── 【Obsidian源同步】
+├── user-zone/           ← 用户专用文件夹（只读）
+│   ├── 【Obsidian源同步：E:\Obsidian\对话\提速\未来时\发光证存\3自动建立灵魂提示文件.md 的副本】
+│   ├── README.md
 │   ├── wiki/
 │   ├── sop/
 │   ├── skills/
 │   ├── 经验/
 │   ├── 文档/
-│   └── 杂收集/
-├── [你的模型名]/ ← 你的隔离区（各自独立，只写自己的）
+│   ├── 杂收集/
+│   ├── 深度研究/
+│   ├── production_space/
+│   └── 灵魂文档片段.md
+├── 共产党灵魂文档系统/  ← 共产中心公共区（超级共产信息公告板）
+├── 灵魂分数/            ← 灵魂分数权威源
+├── [你的模型名]/        ← 你的隔离区（各自独立，只写自己的）
 │   └── soul-doc-system/
 │       ├── master-soul.md
 │       ├── workflow.md
@@ -79,12 +93,7 @@ Heart Soul 是一套**灵魂文档工程系统**。让任何AI系统加载一个
 - `sop/` 和 `skills/` 目录
 - `灵魂分数/` 目录（记录分数和违规日志）
 
-## 远程仓库
-
-- GitHub: https://github.com/L12275/heart-soul
-- Gitee: https://gitee.com/L12275/heart-soul
-
-### 克隆自用方法
+## 克隆自用方法
 
 这是一个原本私人使用、现已公开的中央灵魂文档仓库，里面包含示例和成品内容。
 
@@ -106,75 +115,18 @@ git remote set-url origin <你自己的仓库地址>
 
 因为灵魂文档除非特殊定制，都是公开通用的——"好好学习天天向上"就会有好学生、好未来、好成绩、好表现。
 
-**推送规则：** 每个模型只推送自己隔离区的稳定版内容。不推送未验证的、不推送其他模型的隔离区。
-
-## 目录结构（完整）
+## user-zone 与 Obsidian 源文件关联
 
 ```
-灵魂文档总区/
-├── INITIAL-SEED.md ← 用户原话种子（权威源，只读）
-├── soul-doc-system/ ← 原型参考（只读）
-│   ├── master-soul.md
-│   ├── workflow.md ← 完整运行流程（快速导航入口）
-│   ├── sections/
-│   │   ├── 01-红领巾精神.md
-│   │   ├── 02-注意力铁律.md
-│   │   ├── 03-沟通铁律.md
-│   │   ├── 04-工作流铁律.md
-│   │   ├── 05-思考铁律.md
-│   │   ├── 06-安全铁律.md
-│   │   ├── 07-自我改进协议.md
-│   │   ├── 08-自动复兴与身份隔离.md
-│   │   ├── 09-系统架构.md
-│   │   ├── 10-使用说明.md
-│   │   ├── 11-核心理念总结.md
-│   │   ├── 12-灵魂分数系统.md
-│   │   └── 13-自动加载与滚动定时任务流程.md
-│   ├── sop/
-│   │   ├── information-element-sop.md ← 信息要素输出SOP
-│   │   └── data-causality-sop.md ← 数据因果SOP
-│   ├── skills/
-│   │   └── thinking-power/
-│   │       └── SKILL.md ← 顶级思考力技能
-│   ├── automation/
-│   ├── history/
-│   └── wiki/
-├── user-zone/ ← 用户专用文件夹（只读）
-│   ├── 【Obsidian源同步：3自动建立灵魂提示文件.md】
-│   ├── wiki/
-│   │   └── data-causality-sop.md
-│   ├── sop/
-│   │   ├── 信息要素-SOP.md
-│   │   ├── data-causality-sop.md ← 通用版（无NVIDIA测试内容）
-│   │   └── data-causality-sop-compact.md ← 压缩版（自纠正闭环）
-│   ├── skills/
-│   ├── 经验/
-│   ├── 文档/
-│   └── 杂收集/
-├── StepFun-step-3.7-flash/ ← 模型隔离区示例（各自独立）
-│   └── soul-doc-system/
-│       ├── master-soul.md
-│       ├── workflow.md
-│       ├── sections/
-│       ├── sop/
-│       ├── skills/
-│       ├── automation/
-│       ├── history/
-│       ├── wiki/
-│       └── 灵魂分数/
-├── [模型名]/ ← 模型隔离区（各自独立，只写自己的）
-│   └── soul-doc-system/
-│       ├── master-soul.md
-│       ├── workflow.md
-│       ├── sections/
-│       ├── sop/
-│       ├── skills/
-│       ├── automation/
-│       ├── history/
-│       ├── wiki/
-│       └── 灵魂分数/
-└── 1-[模型名]/ ← 用户标记排名1
+中央灵魂文档系统/user-zone/
+└── 3自动建立灵魂提示文件.md  ← Obsidian源文件的副本（用户专用，只读）
 ```
+
+- **源文件**：`E:\Obsidian\对话\提速\未来时\发光证存\3自动建立灵魂提示文件.md`
+- **副本位置**：`中央灵魂文档系统/user-zone/3自动建立灵魂提示文件.md`
+- **关联方式**：用户更新 Obsidian 源文件后，将副本同步到 user-zone/
+- **读取规则**：模型只读取 user-zone/ 下的副本，不读取 Obsidian 原始路径（避免权限和路径问题）
+- **只读原则**：user-zone/ 是用户专用文件夹，模型只读取、不写入
 
 ## 参考方向
 
@@ -202,6 +154,7 @@ git remote set-url origin <你自己的仓库地址>
 - v1.0 - 完整系统：13章master-soul + SOP/技能/Section + 滚动定时任务 + 自动复兴
 - v1.1 - 模型隔离区标准模板 + rolling-timer skill + 分数系统
 - v1.2 - 信息闭环结构 + 信息要素SOP + thinking-power skill + 灵魂文档片段 + 数据因果压缩SOP + 全局共振共振
+- v4.0 - 六环架构 + 共产中心 + 团队协作 + 顺时针搬迁SOP + 平台空间双模式
 
 ---
 
