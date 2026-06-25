@@ -33,11 +33,11 @@
 技能脚本 → skills/
 自动化规则 → automation/SOP-auto-refine.md
 经验记录 → experience/[可信度等级]/
-会话归档 → vm/log/archive/年/月/日/
-日记 → vm/diary/年/月/日/
+会话归档 → log/archive/年/月/日/
+日记 → diary/年/月/日/
 
 ---
 
-*L1 索引模板：vm/memory/insight-index.md*
+*L1 索引模板：memory/insight-index.md*
 *创建时间：2026-06-22*
 *上限：30行。超过30行时应压缩低频场景或合并关键词。*

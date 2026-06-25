@@ -25,7 +25,7 @@
 **执行子角色时（⑥环激活），③环主灵魂始终在线：**
 - 子角色从主灵魂继承红领巾精神、注意力铁律、沟通铁律、灵魂分数
 - 子角色不替换主灵魂，是在主灵魂包裹下运行的专业分支
-- 子角色产出归入子角色 vm/product/，不污染主灵魂文件
+- 子角色产出归入子角色 product/，不污染主灵魂文件
 - 子角色结束后回到主灵魂，主灵魂继续正常运转
 - 子角色犯错 → 子角色灵魂分扣分，同时主灵魂分数也受影响
 
@@ -45,11 +45,11 @@
 | 层级 | 载体 | 作用 | GA等价 |
 |------|------|------|--------|
 | L0 | system prompt硬编码 | 元规则（最强约束，不可绕过） | memory/L0 rules |
-| L1 | vm/memory/insight-index.md（≤30行） | 极简导航索引 | global_mem_insight.txt |
+| L1 | memory/insight-index.md（≤30行） | 极简导航索引 | global_mem_insight.txt |
 | L2 | sections/03-knowledge-base.md | 全局事实库（含3条红线公理） | global_mem.txt |
 | L3 | sop/ 目录 | 任务技能/SOP（自动沉淀） | memory/*.md/.py |
-| L4 | vm/log/archive/年/月/日/ | 会话归档（cron每12h自动归档） | L4_raw_sessions/ |
-| 日记 | vm/diary/年/月/日/ | 思考成长记录（时间轴+反思标记） | 额外设计 |
+| L4 | log/archive/年/月/日/ | 会话归档（cron每12h自动归档） | L4_raw_sessions/ |
+| 日记 | diary/年/月/日/ | 思考成长记录（时间轴+反思标记） | 额外设计 |
 
 ### GA 核心原则
 
@@ -82,7 +82,6 @@
 │       │   ├── 07-tools.md ← 工具（CLI-Anything）
 │       │   ├── 08-desktop.md ← 办公桌说明
 │       │   └── 09-discovery.md ← 发现记录
-│       ├── vm/ ← 运行时自动使用
 │       │   ├── memory/
 │       │   │   ├── context/L0-L4.md ← GA L0-L4设计（L0=硬编码非文件）
 │       │   │   └── insight-index.md ← L1洞察索引（≤30行）
@@ -133,14 +132,14 @@
 | 7 | `genome/README.md` | 模型不知道自己继承了哪些价值 |
 | 8 | `灵魂分数/SCORE.md` | 没有分数约束的角色会失控 |
 | 9 | `sections/06-first-visit.md` | 模型第一次进入时不会写自观察记录 |
-| 10 | `vm/memory/insight-index.md` | L1索引缺失 |
+| 10 | `memory/insight-index.md` | L1索引缺失 |
 
 ### 可选
 
 | 文件 | 用途 |
 |------|------|
 | `sections/07-tools.md` | 此角色专用工具清单 |
-| `sections/08-desktop.md` | 子角色便签（写进vm/diary/） |
+| `sections/08-desktop.md` | 子角色便签（写进diary/） |
 | `sections/09-discovery.md` | 发现/启发记录 |
 | `skills/README.md` | 列出此角色的专业技能 |
 | `sop/README.md` | 沉淀SOP |
@@ -164,11 +163,11 @@
 1. 读取总灵魂 master-soul.md（③环，红领巾精神+铁律始终在线）
 2. 读取子角色 master-soul.md（⑥环，身份定义）
 3. 读取子角色 sections/01-09 全部
-4. 读取子角色 vm/memory/insight-index.md
-5. 在 vm/log/current/ 中标记"切换进入"
-6. 在 vm/diary/ 中创建今日日记，标记 [flag:会话启动]
+4. 读取子角色 memory/insight-index.md
+5. 在 log/current/ 中标记"切换进入"
+6. 在 diary/ 中创建今日日记，标记 [flag:会话启动]
 7. 以子角色身份开始工作——但主灵魂的铁律仍然约束所有行为
-8. 产出物放入 vm/product/ 对应分类（不污染主灵魂文件夹）
+8. 产出物放入 product/ 对应分类（不污染主灵魂文件夹）
 9. 记录经验到 experience/
 10. 有效SOP沉淀到 sop/
 11. 工作结束：回到总灵魂（③环恢复为主要工作环）
@@ -186,10 +185,10 @@
 
 ## 第三步：维护子角色
 
-- 产出 → `vm/product/`
+- 产出 → `product/`
 - 经验 → `experience/`
-- 日志 → `vm/log/archive/年/月/日/`
-- 反思 → `vm/diary/年/月/日/`
+- 日志 → `log/archive/年/月/日/`
+- 反思 → `diary/年/月/日/`
 - SOP → `sop/`
 - 发现 → `sections/09-discovery.md`
 - 分数 → `灵魂分数/`

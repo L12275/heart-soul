@@ -1,7 +1,7 @@
 # 当前会话日志 — Running
 
 > 每次以子角色工作时，实时记录关键事件。
-> 工作结束时，整理后归档到 vm/log/archive/年/月/日/
+> 工作结束时，整理后归档到 log/archive/年/月/日/
 
 ---
 
@@ -52,8 +52,8 @@
 
 ---
 
-*运行中日志：vm/log/current/running.md*
-*工作结束后整理归档到 vm/log/archive/年/月/日/*
+*运行中日志：log/current/running.md*
+*工作结束后整理归档到 log/archive/年/月/日/*
 
 ---
 

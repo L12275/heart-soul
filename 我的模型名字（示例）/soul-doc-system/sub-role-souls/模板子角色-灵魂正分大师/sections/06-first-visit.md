@@ -12,9 +12,9 @@
 1. 浏览目录结构（`ls` 或等效操作）
 2. 阅读 master-soul.md
 3. 阅读 sections/01-05
-4. 阅读 vm/memory/insight-index.md
+4. 阅读 memory/insight-index.md
 5. 浏览 sop/、skills/、genome/、experience/ 目录
-6. 将自身的理解写成观察记录，保存到 `vm/diary/年/月/日/[会话ID].md`中
+6. 将自身的理解写成观察记录，保存到 `diary/年/月/日/[会话ID].md`中
 
 ---
 
