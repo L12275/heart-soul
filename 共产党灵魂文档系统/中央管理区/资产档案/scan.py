@@ -42,9 +42,11 @@ def main():
 
     entries = scan(base)
 
-    # 输出到文件
+    # 输出到 scan.py 所在目录（即资产档案/ 文件夹）
+    script_dir = os.path.dirname(os.path.abspath(__file__))
     out_name = f"资产清单-{now}.md"
-    with open(out_name, 'w', encoding='utf-8') as f:
+    out_path = os.path.join(script_dir, out_name)
+    with open(out_path, 'w', encoding='utf-8') as f:
         f.write(f"# 文件资产清单\n\n")
         f.write(f"> 扫描时间：{now}\n")
         f.write(f"> 扫描范围：{os.path.abspath(base)}\n")
