@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """子角色模板同步
-用法: python sync-sub-role.py
+用法: cd 模型隔离区 && python soul-doc-system/tools/scripts/sync-sub-role.py
 将模板子角色文件夹同步到新的子角色实例。
 对比模板和目标，复制缺失文件，更新版本标记。
+注意：sub-role-souls/ 已移至 soul-doc-system/ 同级，必须从模型隔离区根目录运行。
 """
 import sys, os, shutil, filecmp
 

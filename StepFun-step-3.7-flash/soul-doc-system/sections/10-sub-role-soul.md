@@ -113,8 +113,10 @@
 ```
 
 ```
-[模型隔离区]/soul-doc-system/
-└── sub-role-souls/ ← 子角色灵魂系统总文件夹
+[模型隔离区]/
+├── soul-doc-system/       ← 主灵魂文档系统
+│   └── master-soul.md
+└── sub-role-souls/        ← 子角色灵魂系统总文件夹（与 soul-doc-system 同级，物理隔离）
     ├── README.md ← 子角色索引（所有子角色列表）
     ├── [角色名称1]/ ← 具体子角色A（完全隔离）
     │   ├── master-soul.md ← 子角色的灵魂主文件
