@@ -2,7 +2,12 @@
 
 > 全控制 Windows 电脑——模型通过屏幕截图 + 鼠标键盘控制实现 Computer Use。
 > 基于 GenericAgent 的 `memory/ljqCtrl.py`，不需要安装整个 GA 项目。
-> 参考：https://github.com/lsdefine/GenericAgent
+
+**参考文章：[GA实战 | 借助 GenericAgent，Hermes 实现了 Windows 电脑全控制（内附指令）](https://mp.weixin.qq.com/s/UMVDYNGLxKrWNs-_jmS9aQ)**
+
+**核心项目：[GenericAgent](https://github.com/lsdefine/GenericAgent)**
+- 用户指令：「去学一下这个项目里的 computer_use，改造一下你自己，剩下的活你来干。」
+- 已提取 ljqCtrl.py（177行）和9个原子工具，无需安装整个项目
 
 ---
 
