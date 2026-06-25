@@ -1,168 +1,245 @@
-# Computer Use — 操作SOP
+# Computer Use 操作 SOP — 基于 GA ljqCtrl_sop.md + computer_use.md
 
-> 全控制Windows电脑的标准操作流程。
-> 基于：[GenericAgent computer_use](https://github.com/lsdefine/GenericAgent)
-> 参考：[GA实战 | 借助 GenericAgent，Hermes 实现了 Windows 电脑全控制](https://mp.weixin.qq.com/s/UMVDYNGLxKrWNs-_jmS9aQ)
+> 全控制 Windows 电脑的标准操作流程。
+> 基于：GenericAgent 的 `memory/ljqCtrl_sop.md` + `memory/computer_use.md`
+> 参考：https://github.com/lsdefine/GenericAgent
 
 ---
 
-## 一、什么时候用Computer Use
+## 核心原则（四条铁律）
 
-### 必须用Computer Use的场景
+| 铁律 | 说明 |
+|------|------|
+| **一律使用物理坐标** | 传给所有工具的坐标必须是物理像素 = 截图像素坐标 |
+| **严禁 pyautogui** | pyautogui 会污染 win32api 导致逻辑冲突 |
+| **操作前先激活窗口** | 必须 Activate(hwnd) 到前台再操作 |
+| **Click 后检查像素变化** | 0% = 点歪了，立即停下来诊断，禁止盲目重试 |
 
-- 操作无CLI接口的GUI程序
-- 需要截图确认当前界面状态
-- 需要点击特定按钮或菜单项
-- 需要拖放文件或元素
-- 需要演示操作流程
+---
 
-### 优先用其他工具的场景
+## 探测/定位四级链（按优先级降级）
 
-- 有CLI接口 → 用CLI-Anything封装后使用
-- 有MCP工具 → 用MCP-Zero发现并使用
-- 有自动化脚本 → 用脚本执行
-- Computer Use是**最后手段**，不是首选
+GA 的核心方法论：**先探测，再操作，先定位，再点击。**
 
-## 二、操作前检查清单
+| 级别 | 工具 | 用法时机 | 能力/限制 |
+|------|------|----------|-----------|
+| **0** | win32gui 窗口枚举 | 始终先行 | 枚举窗口标题/类名/rect，确定目标窗口、前台状态、客户区原点 |
+| **1** | Python UIA（控件树） | 首选探测+操作 | 控件树可用时，探测与操作都用 UIA（免坐标点击）；**游戏禁用** |
+| **2** | ui_detect.py + ljqCtrl 截图 | 1 无效时才用 | 截图+OCR+模板匹配，返回 bbox+文本；bbox 是截图内坐标需转物理 |
+| **3** | Vision VLM | 2 仍不足时才用 | 仅语义理解、确认界面状态；**不可信其坐标** |
 
-- [ ] 确认GenericAgent已安装并运行
-- [ ] 确认当前屏幕状态（截图）
-- [ ] 确认操作目标（按钮/菜单/文件位置）
-- [ ] 确认操作可逆性（能撤销吗？）
-- [ ] 确认安全（不碰敏感区域）
-- [ ] 确认用户知情（重要操作前通知）
+**原则：**
+- 前者无效才用后者
+- UIA 可用时少用 ui_detect/ljqCtrl
+- UIA 不可用时，后续操作也禁用 UIA
 
-## 三、操作流程（五步走）
+---
 
-### Step 1：截图确认
+## 操作流程（五步走）
 
-```
-截图当前屏幕 → 分析界面状态 → 确认目标位置
-```
+### Step 1：窗口枚举（始终先行）
 
-- 先截图，再操作
-- 分析界面上的按钮、菜单、输入框位置
-- 确认目标元素的坐标或相对位置
+```python
+import win32gui
 
-### Step 2：规划操作
-
-```
-确定操作类型 → 确定操作顺序 → 确定回滚方案
-```
-
-| 操作类型 | 适用场景 | 回滚方案 |
-|---------|---------|---------|
-| 点击 | 按钮、链接、菜单项 | 截图确认点击结果 |
-| 双击 | 打开文件/文件夹 | 截图确认打开结果 |
-| 输入 | 文字输入框 | 截图确认输入内容 |
-| 快捷键 | 系统操作（Ctrl+C等） | 截图确认操作结果 |
-| 拖放 | 移动文件/元素 | 截图确认移动结果 |
-| 滚动 | 浏览长页面 | 截图确认滚动位置 |
-
-### Step 3：执行操作
-
-```
-按规划执行 → 每次只做一个操作 → 截图验证
+def enum_windows():
+    """枚举所有顶层窗口"""
+    windows = []
+    def callback(hwnd, extra):
+        if win32gui.IsWindowVisible(hwnd):
+            title = win32gui.GetWindowText(hwnd)
+            rect = win32gui.GetWindowRect(hwnd)
+            windows.append({'hwnd': hwnd, 'title': title, 'rect': rect})
+        return True
+    win32gui.EnumWindows(callback, None)
+    return windows
 ```
 
-- 一次只做一个操作，不要批量操作
-- 每个操作后截图验证结果
-- 如果结果不符合预期，立即停止并分析
+**目的：**
+- 确认目标窗口是否存在
+- 确认哪个窗口在前台
+- 获取窗口句柄 (hwnd)
 
-### Step 4：验证结果
+---
 
-```
-截图 → 对比预期 vs 实际 → 确认成功/失败
-```
+### Step 2：激活窗口
 
-- 操作后截图确认结果
-- 对比预期状态和实际状态
-- 如果成功 → 继续下一步
-- 如果失败 → 回滚或调整策略
+```python
+import ljqCtrl
 
-### Step 5：记录日志
-
-```
-记录操作内容 → 记录结果 → 记录遇到的问题
+hwnd = win32gui.FindWindow(None, "窗口标题")
+ljqCtrl.Activate(hwnd)
 ```
 
-在 `diary/` 中记录：
-```markdown
-### HH:MM — Computer Use操作
-**操作类型：** [点击/输入/拖放等]
-**操作目标：** [目标描述]
-**操作过程：** [具体步骤]
-**结果：** [成功/失败]
-**截图：** [截图路径]
-**反思：** [有什么可以改进的]
+**关键技巧：假 Alt-up 绕过前台锁**
+- Windows 前台锁防止程序 stealing focus
+- `Activate` 内部先发虚拟 Alt-up 事件
+- 系统认为用户正在按 Alt，解除限制
+
+---
+
+### Step 3：截图确认界面
+
+```python
+# 前台截图（只截客户区）
+img = ljqCtrl.GrabWindow(hwnd)
+img.save('screenshot.png')
+
+# 或区域截图
+img = ImageGrab.grab((left, top, right, bottom))
 ```
 
-## 四、安全铁律
+**分析截图：**
+- 找到目标按钮/输入框/菜单的位置
+- 确认界面状态（是否弹出、是否加载完成）
+- 规划下一步操作
 
-1. **不碰敏感区域** — 不操作系统设置、注册表、管理员权限
-2. **可逆优先** — 能撤销的操作优先，不能撤销的先确认
-3. **先确认再操作** — 每次操作前截图确认当前状态
-4. **记录操作日志** — 每次操作记录做了什么、结果如何
-5. **用户知情** — 重要操作前通知用户，获得同意
-6. **不批量操作** — 一次只做一个操作，每个操作后验证
+---
 
-## 五、常见操作示例
+### Step 4：执行操作（一次只做一步）
+
+**鼠标操作：**
+```python
+# 移动 + 点击
+ljqCtrl.Click(x, y)              # 带像素验证
+ljqCtrl.MouseClick()              # 纯点击（无验证）
+ljqCtrl.MouseDClick()             # 双击
+ljqCtrl.MouseRightClick()         # 右键（需扩展 ljqCtrl）
+ljqCtrl.SetCursorPos((x, y))      # 只移动不点击
+```
+
+**键盘操作：**
+```python
+ljqCtrl.Press('ctrl+v')           # 粘贴
+ljqCtrl.Press('alt+tab')          # 切换窗口
+ljqCtrl.Press('enter')            # 确认
+ljqCtrl.Press('esc')              # 取消
+```
+
+**文本输入：**
+```python
+# 方法一：Ctrl+V（推荐）
+import pyperclip
+pyperclip.copy('要输入的文字')
+ljqCtrl.Click(input_x, input_y)   # 先点击输入框
+ljqCtrl.Press('ctrl+v')
+
+# 方法二：逐字符输入（需扩展 TypeText）
+```
+
+**拖放：**
+```python
+ljqCtrl.SetCursorPos((start_x, start_y))
+ljqCtrl.MouseDown()
+ljqCtrl.SetCursorPos((end_x, end_y))
+ljqCtrl.MouseUp()
+```
+
+---
+
+### Step 5：验证结果
+
+```python
+# 操作后截图
+after = ljqCtrl.GrabWindow(hwnd)
+after.save('after.png')
+
+# 对比前后截图
+# 或检查像素变化（Click(check=True) 已内置）
+```
+
+**判断标准：**
+- 前台窗口是否切换？
+- 界面状态是否符合预期？
+- 目标操作是否生效？
+
+---
+
+## 坐标转换（核心公式）
+
+### 逻辑坐标 → 物理坐标
+
+```python
+物理坐标 = 逻辑坐标 / ljqCtrl.dpi_scale
+```
+
+### 窗口客户区原点
+
+```python
+# ClientToScreen 获取客户区原点（排除标题栏/边框）
+cx, cy = win32gui.ClientToScreen(hwnd, (0, 0))
+ox, oy = int(cx / ljqCtrl.dpi_scale), int(cy / ljqCtrl.dpi_scale)
+
+# ui_detect bbox 中心 → 屏幕物理坐标
+screen_x = ox + (bbox[0] + bbox[2]) // 2
+screen_y = oy + (bbox[1] + bbox[3]) // 2
+ljqCtrl.Click(screen_x, screen_y)
+```
+
+**禁止：**
+- 不要用 `GetWindowRect` 左上角 + 截图坐标（含标题栏/边框，会错位）
+- 不要用 `DwmGetWindowAttribute`（也含阴影）
+
+---
+
+## 常见操作示例
 
 ### 打开文件
-
 ```
-1. 截图确认桌面/文件管理器状态
-2. 双击目标文件
-3. 截图确认文件已打开
-4. 记录操作日志
-```
-
-### 复制文件
-
-```
-1. 截图确认源文件位置
-2. 右键点击源文件 → 复制
-3. 导航到目标文件夹
-4. 右键点击目标位置 → 粘贴
-5. 截图确认复制完成
-6. 记录操作日志
+1. 枚举窗口 → 找到文件管理器
+2. Activate → 激活窗口
+3. GrabWindow → 截图确认
+4. FindBlock → 找文件图标
+5. MouseDClick → 双击打开
+6. GrabWindow → 截图确认打开结果
 ```
 
 ### 网页操作
-
 ```
-1. 截图确认浏览器当前页面
-2. 点击地址栏 → 输入URL → Enter
-3. 截图确认页面加载完成
-4. 滚动页面找到目标元素
-5. 点击目标元素
-6. 截图确认操作结果
-7. 记录操作日志
+1. 枚举窗口 → 找到 Chrome
+2. Activate → 激活 Chrome
+3. GrabWindow → 截图确认当前页面
+4. Click(地址栏坐标) → 点击地址栏
+5. Press('ctrl+a') → 全选
+6. Press('ctrl+v') → 粘贴 URL
+7. Press('enter') → 跳转
+8. GrabWindow → 截图确认页面加载
 ```
 
-## 六、故障排查
-
-| 问题 | 原因 | 解决方案 |
-|------|------|---------|
-| 点击位置错误 | 坐标不准 | 先截图确认位置，调整坐标 |
-| 输入未生效 | 焦点不在输入框 | 先点击输入框获取焦点 |
-| 页面未加载 | 网络慢 | 等待页面加载完成再操作 |
-| 操作被阻止 | 权限不足 | 不碰需要权限的操作，通知用户 |
-| 截图失败 | GenericAgent未运行 | 检查GenericAgent状态 |
-
-## 七、检查清单
-
-每次Computer Use操作后检查：
-- [ ] 是否先截图确认了当前状态？
-- [ ] 是否一次只做了一个操作？
-- [ ] 每个操作后是否截图验证了结果？
-- [ ] 是否记录了操作日志？
-- [ ] 是否有敏感区域被误操作？
-- [ ] 是否可逆（或已确认不可逆的风险）？
+### 文本输入
+```
+1. Click(输入框坐标) → 获取焦点
+2. Press('ctrl+a') → 全选已有文本
+3. pyperclip.copy('新文本')
+4. Press('ctrl+v') → 粘贴
+5. Press('enter') → 确认
+```
 
 ---
 
-*Computer Use 操作SOP*
-*v1.0 六环架构版*
-*核心项目：https://github.com/lsdefine/GenericAgent*
-*参考文章：https://mp.weixin.qq.com/s/UMVDYNGLxKrWNs-_jmS9aQ*
+## 故障排查
+
+| 问题 | 原因 | 解决方案 |
+|------|------|---------|
+| Click 像素变化 0% | 坐标错误 | 检查 ClientToScreen + dpi_scale 换算 |
+| 窗口无法激活 | 前台锁 | Activate 已处理，检查 hwnd 是否正确 |
+| 输入未生效 | 焦点不在输入框 | 先 Click 输入框获取焦点 |
+| FindBlock 找不到 | 阈值太高/模板不对 | 降低 threshold 或重新截模板图 |
+| 截图偏移 | 用了 GetWindowRect | 改用 ClientToScreen |
+| pyautogui 冲突 | 同时 import pyautogui | 严禁在 ljqCtrl 工具链中 import pyautogui |
+
+---
+
+## 安全规则
+
+1. **不碰敏感区域** — 不操作系统设置、注册表、管理员权限
+2. **可逆优先** — 能撤销的操作优先
+3. **先确认再操作** — 每次操作前截图确认
+4. **记录操作日志** — 记录做了什么、结果如何
+5. **用户知情** — 重要操作前通知用户
+6. **不批量操作** — 一次只做一个操作，每个后验证
+
+---
+
+*Computer Use 操作 SOP — 基于 GA ljqCtrl_sop.md + computer_use.md*
+*来源：https://github.com/lsdefine/GenericAgent*

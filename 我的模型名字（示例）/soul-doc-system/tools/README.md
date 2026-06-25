@@ -14,8 +14,13 @@ tools/
 ├── mcp/                         ← MCP工具（自主LLM代理的主动工具发现）
 │   └── MCP-Zero-README.md       ← https://github.com/xfey/MCP-Zero
 ├── computer-use/                ← Computer Use（GUI自动化，全控制电脑）
-│   ├── README.md                ← Computer Use说明
-│   └── SOP.md                   ← Computer Use操作SOP
+│   ├── README.md                ← Computer Use总览（四条铁律+四级探测链+快速开始）
+│   ├── SOP.md                   ← 操作SOP（五步流程+坐标换算+故障排查）
+│   ├── ljqCtrl.py               ← GA原始Windows控制后端（177行，可直接import）
+│   ├── 原子工具集.md            ← 9个原子工具的用法+代码（基于真实 ljqCtrl.py）
+│   ├── Win32后端参考.md         ← 四个核心技术点详解（DPI/前台锁/像素验证/硬件级）
+│   ├── GA-ljqCtrl-SOP.md        ← GA原始 ljqCtrl 坐标转换SOP（直接引用）
+│   └── GA-computer_use.md       ← GA原始 computer_use 策略文档（直接引用）
 └── web-tools/                   ← 网页工具（待CLI化候选）
 ```
 
