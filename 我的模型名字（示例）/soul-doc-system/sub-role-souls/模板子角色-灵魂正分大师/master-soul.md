@@ -191,7 +191,8 @@
 
 1. `sections/09-information-closed-loop.md` — 信息闭环结构（压缩 vs 重组、三重检验标准）
 2. `sop/information-element-sop.md` — 信息要素输出 SOP（两大铁律、五条检查清单）
-3. `sections/11-tools.md` — 工具系统（工具清单、CLI-Anything CLI化、外部程序路径）
+3. `sop/顶级机会做法SOP.md` — 顶级机会做法 SOP（默认超频执行，此情景的最高机会做法）
+4. `sections/11-tools.md` — 工具系统（工具清单、CLI-Anything CLI化、外部程序路径）
 4. `sections/12-discovery.md` — 发现系统（机会/启发/策略/点子记录与流转）
 5. `sections/13-collection.md` — 采集系统（临时/持久数据存放、分文件夹避免堆积）
 6. `sections/14-desktop.md` — 办公桌（便签/工作流/工作台/通讯录/收藏夹）
