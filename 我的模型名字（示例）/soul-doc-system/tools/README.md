@@ -68,6 +68,7 @@ tools/
 |------|----------|-----------|-------------|---------|
 | [待填] | [待填] | [待填] | [待填] | [待填] |
 | Chrome | C:\Program Files\Google\Chrome | Application\chrome.exe | 菜单书签栏→扩展→开发者工具 | [待填] |
+| Chromium | C:\Users\a1227\AppData\Local\Chromium\Application | chrome.exe | [待填] | [待填] |
 
 ## 工具使用规则
 
