@@ -7,13 +7,21 @@
 
 ```
 tools/
-├── README.md              ← 本文件（工具总览）
-├── scripts/               ← 脚本（Python/Bash等自动化脚本）
-├── cli/                   ← CLI化工具（用CLI-Anything封装后的CLI命令）
-├── programs/              ← 关联常用程序（只记录路径，不安装）
-├── mcp/                   ← MCP工具（自主LLM代理的主动工具发现）
-│   └── MCP-Zero-README.md ← https://github.com/xfey/MCP-Zero
-└── web-tools/             ← 网页工具（待CLI化候选）
+├── README.md                    ← 本文件（工具总览）
+├── scripts/                     ← 脚本（Python/Bash等自动化脚本）
+├── cli/                         ← CLI化工具（用CLI-Anything封装后的CLI命令）
+├── programs/                    ← 关联常用程序（只记录路径，不安装）
+├── mcp/                         ← MCP工具（自主LLM代理的主动工具发现）
+│   └── MCP-Zero-README.md       ← https://github.com/xfey/MCP-Zero
+├── computer-use/                ← Computer Use（GUI自动化，全控制电脑）
+│   ├── README.md                ← Computer Use总览（四条铁律+四级探测链+快速开始）
+│   ├── SOP.md                   ← 操作SOP（五步流程+坐标换算+故障排查）
+│   ├── ljqCtrl.py               ← GA原始Windows控制后端（177行，可直接import）
+│   ├── 原子工具集.md            ← 9个原子工具的用法+代码（基于真实 ljqCtrl.py）
+│   ├── Win32后端参考.md         ← 四个核心技术点详解（DPI/前台锁/像素验证/硬件级）
+│   ├── GA-ljqCtrl-SOP.md        ← GA原始 ljqCtrl 坐标转换SOP（直接引用）
+│   └── GA-computer_use.md       ← GA原始 computer_use 策略文档（直接引用）
+└── web-tools/                   ← 网页工具（待CLI化候选）
 ```
 
 ## CLI化资源
@@ -38,6 +46,25 @@ tools/
 - 在需要时可自行用MCP-Zero发现和集成新工具
 - 详细说明见 mcp/MCP-Zero-README.md
 
+## Computer Use（GUI自动化）
+
+**核心项目：[GenericAgent computer_use](https://github.com/lsdefine/GenericAgent)**
+- 全控制Windows电脑（GUI自动化）
+- 模型通过屏幕截图+鼠标键盘控制实现Computer Use
+- 参考文章：[GA实战 | 借助 GenericAgent，Hermes 实现了 Windows 电脑全控制](https://mp.weixin.qq.com/s/UMVDYNGLxKrWNs-_jmS9aQ)
+
+**实现方式：**
+- 在 tools/computer-use/ 下有详细说明和SOP
+- 模型根据需要自行使用computer_use功能
+- 详细说明见 computer-use/README.md
+- 操作SOP见 computer-use/SOP.md
+
+**关联资源：**
+| 项目 | URL | 说明 |
+|------|-----|------|
+| GenericAgent | https://github.com/lsdefine/GenericAgent | Computer Use核心项目 |
+| GA实战文章 | https://mp.weixin.qq.com/s/UMVDYNGLxKrWNs-_jmS9aQ | Hermes实现Windows电脑全控制 |
+
 ## 关联常用程序
 
 > 如果程序大，不建议安装到这里，但文档写上程序路径、程序文件夹完整文件结构与程序界面平面坐标导航图，便于一篇文档快速清晰重复易用，避免重复浪费时间。
@@ -46,6 +73,7 @@ tools/
 |------|----------|-----------|-------------|---------|
 | [待填] | [待填] | [待填] | [待填] | [待填] |
 | Chrome | C:\Program Files\Google\Chrome | Application\chrome.exe | 菜单书签栏→扩展→开发者工具 | [待填] |
+| Chromium | C:\Users\a1227\AppData\Local\Chromium\Application | chrome.exe | [待填] | [待填] |
 
 ## 工具使用规则
 

@@ -130,7 +130,7 @@
     │   │   ├── 07-tools.md ← 工具
     │   │   ├── 08-desktop.md ← 办公桌
     │   │   └── 09-discovery.md ← 发现记录
-    │   ├── vm/ ← 虚拟机（运行时的临时区域）
+    │   ├── memory/ log/ diary/ product/ ← 运行时目录（非编辑区）
     │   │   ├── memory/
     │   │   │   ├── context/L0-L4.md ← GA记忆架构
     │   │   │   └── insight-index.md ← L1洞察索引（≤30行）
@@ -186,8 +186,8 @@
 → 在 sub-role-souls/ 中找到对应角色文件夹
 → 完整读取该子角色的 master-soul.md
 → 读取子角色的 sections/（所有侧文件）
-→ 读取 vm/memory/insight-index.md
-→ 在子角色的 vm/ 启动当前会话上下文
+→ 读取 memory/insight-index.md
+→ 在子角色的 memory/ log/ diary/ product/ 启动当前会话上下文
 → 以子角色身份工作
 → 结束时回到总灵魂
 ```
@@ -198,7 +198,7 @@
 
 ```
 子角色工作结束
-→ 将产出物移入子角色的 vm/product/ 对应分类目录
+→ 将产出物移入子角色的 product/ 对应分类目录
 → 将值得长期保留的经验写入子角色的 experience/
 → 将被证实为有效的规则写入子角色的 sop/ 或 sections/
 → 更新子角色的灵魂分数记录
@@ -213,16 +213,16 @@
 | 层级 | 名称 | 内容 | 载体 | GA等价 |
 |------|------|------|------|--------|
 | L0 | 元规则 | 硬编码约束（红领巾/安全/八荣八耻） | system prompt | memory/L0 rules |
-| L1 | 洞察索引 | ≤30行导航，"有什么+去哪找" | vm/memory/insight-index.md | global_mem_insight.txt |
+| L1 | 洞察索引 | ≤30行导航，"有什么+去哪找" | memory/insight-index.md | global_mem_insight.txt |
 | L2 | 全局事实 | 路径/配置/常量 + 3条红线公理 | sections/03-knowledge-base.md | global_mem.txt |
 | L3 | 任务技能 | 可复用SOP（从工作中自动沉淀） | sop/ | memory/*.md/.py |
-| L4 | 会话归档 | 已完成任务归档 | vm/log/archive/年/月/日/ | L4_raw_sessions/ |
-| 日记 | 思考成长 | 反思+标记 | vm/diary/年/月/日/ | 额外设计 |
+| L4 | 会话归档 | 已完成任务归档 | log/archive/年/月/日/ | L4_raw_sessions/ |
+| 日记 | 思考成长 | 反思+标记 | diary/年/月/日/ | 额外设计 |
 
 ### 10.4.5 日志层级
 
 ```
-vm/log/
+log/
 ├── archive/ ← 历史归档（年/月/日 三层）
 │   ├── 2026/
 │   │   ├── 06/
@@ -252,7 +252,7 @@ vm/log/
 
 ### 10.4.7 产物分类
 
-`vm/product/` 下按子角色的实际产出类型预先规划分类：
+`product/` 下按子角色的实际产出类型预先规划分类：
 - 研究类产物 vs 执行类产物 vs 文档类产物
 - 提前规划类别，之后直接分类存放
 - 大型产物可能需要按项目再分子文件夹
@@ -283,8 +283,8 @@ genome/ 存放子角色的源头参考：
 
 **临时协作协议：**
 1. 双方进入"协作模式"——各自的隔离软化但不消失
-2. 共享 vm/ 中的上下文（不是各自隔离的 sections/）
-3. 产出物归各自子角色的 vm/product/
+2. 共享 memory/ log/ diary/ product/ 中的上下文（不是各自隔离的 sections/）
+3. 产出物归各自子角色的 product/
 4. 协作结束 → 各自回到完全隔离的干净状态
 
 **禁止：**
@@ -328,7 +328,7 @@ genome/ 存放子角色的源头参考：
 1. 复制 `子角色/模板子角色-灵魂正分大师/` 完整骨架
 2. 填写 master-soul.md — 角色身份定义 + 核心行为准则
 3. 填写 sections/ — 按顺序填写 01-09
-4. 初始化 vm/ — memory/ log/ diary/ product/
+4. 初始化运行时目录 — memory/ log/ diary/ product/
 5. 初始化 experience/ — 4个可信度文件夹
 6. 初始化 灵魂分数/ — 100%起步
 7. 在 sub-role-souls/ README 中添加此角色
