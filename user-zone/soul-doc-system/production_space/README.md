@@ -88,3 +88,4 @@ production_space/
 
 *生产空间：soul-doc-system/production_space/README.md*
 *创建时间：2026-06-23*
+*v5.0 七环架构：④生产空间中心 — 新建工作台按 `sop/通用功能模块自主灵活拼搭组建自定义工作文件夹SOP示例.md` 拼搭*
