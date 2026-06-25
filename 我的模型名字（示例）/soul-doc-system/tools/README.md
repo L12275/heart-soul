@@ -7,13 +7,16 @@
 
 ```
 tools/
-├── README.md              ← 本文件（工具总览）
-├── scripts/               ← 脚本（Python/Bash等自动化脚本）
-├── cli/                   ← CLI化工具（用CLI-Anything封装后的CLI命令）
-├── programs/              ← 关联常用程序（只记录路径，不安装）
-├── mcp/                   ← MCP工具（自主LLM代理的主动工具发现）
-│   └── MCP-Zero-README.md ← https://github.com/xfey/MCP-Zero
-└── web-tools/             ← 网页工具（待CLI化候选）
+├── README.md                    ← 本文件（工具总览）
+├── scripts/                     ← 脚本（Python/Bash等自动化脚本）
+├── cli/                         ← CLI化工具（用CLI-Anything封装后的CLI命令）
+├── programs/                    ← 关联常用程序（只记录路径，不安装）
+├── mcp/                         ← MCP工具（自主LLM代理的主动工具发现）
+│   └── MCP-Zero-README.md       ← https://github.com/xfey/MCP-Zero
+├── computer-use/                ← Computer Use（GUI自动化，全控制电脑）
+│   ├── README.md                ← Computer Use说明
+│   └── SOP.md                   ← Computer Use操作SOP
+└── web-tools/                   ← 网页工具（待CLI化候选）
 ```
 
 ## CLI化资源
@@ -37,6 +40,25 @@ tools/
 - 自主LLM代理的主动工具发现
 - 在需要时可自行用MCP-Zero发现和集成新工具
 - 详细说明见 mcp/MCP-Zero-README.md
+
+## Computer Use（GUI自动化）
+
+**核心项目：[GenericAgent computer_use](https://github.com/lsdefine/GenericAgent)**
+- 全控制Windows电脑（GUI自动化）
+- 模型通过屏幕截图+鼠标键盘控制实现Computer Use
+- 参考文章：[GA实战 | 借助 GenericAgent，Hermes 实现了 Windows 电脑全控制](https://mp.weixin.qq.com/s/UMVDYNGLxKrWNs-_jmS9aQ)
+
+**实现方式：**
+- 在 tools/computer-use/ 下有详细说明和SOP
+- 模型根据需要自行使用computer_use功能
+- 详细说明见 computer-use/README.md
+- 操作SOP见 computer-use/SOP.md
+
+**关联资源：**
+| 项目 | URL | 说明 |
+|------|-----|------|
+| GenericAgent | https://github.com/lsdefine/GenericAgent | Computer Use核心项目 |
+| GA实战文章 | https://mp.weixin.qq.com/s/UMVDYNGLxKrWNs-_jmS9aQ | Hermes实现Windows电脑全控制 |
 
 ## 关联常用程序
 
