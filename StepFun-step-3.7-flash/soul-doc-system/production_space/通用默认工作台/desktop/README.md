@@ -1,16 +1,43 @@
-# 通用默认工作台 Desktop
+# 桌面（空白工作台）
 
-> Workbench-exclusive desktop for temporarily storing current active content.
+> 像空白桌面和地面，平面白板，临时堆放区。
 
-| Subfolder | Purpose |
-|-----------|---------|
-| bookmarks/ | Bookmarks - frequently used links and resources |
-| contacts/ | Address book - relevant contacts |
-| sticky-notes/ | Notes - temporary ideas, reminders |
-| workflows/ | Workflows - currently in-use workflows |
+## 用途
 
-**Rule:** Content unused for over 7 days => archive to long-term folder
+- **已有功能模块的内容** → 分放到对应文件夹（bookmarks/、contacts/、sticky-notes/、workflow/、sop/等），**不放到桌面**
+- **临时内容** → 暂时放到桌面，等整理后再分放
+- **复杂临时文件管理** → 按需创建 桌面1/、桌面2/、桌面n/ 子文件夹
+- **稳定长期内容** → 升级到更高层级的用途存放区（product/、memory/、diary/等）
 
----
-*通用默认工作台 Desktop*
-*Created: 2026-06-23*
+## 规则
+
+1. 说明书文件夹不能删，在说明书文件夹里新建 桌面n 使用
+2. 不适合秒删的文件 → **复制**到桌面，不要移动（桌面内容容易随桌面n一起秒删）
+3. 桌面n 也是创建为空文件夹，按需建立
+4. 创建桌面n 时同步写 README.md 说明用途
+
+## 结构示例
+
+```
+desktop/
+├── README.md          ← 说明书（不可删除）
+├── 桌面1/             ← 按需创建，空文件夹
+│   ├── README.md
+│   └── ...
+├── 桌面2/             ← 按需创建
+└── 桌面n/             ← 按需创建
+```
+
+## 与各功能模块的关系
+
+| 已有模块 | 用途 | 桌面放不放 |
+|----------|------|-----------|
+| bookmarks/ | 收藏夹 | 不放 |
+| contacts/ | 通讯录 | 不放 |
+| sticky-notes/ | 便签 | 不放 |
+| workflow/ | 工作流 | 不放 |
+| sop/ | SOP | 不放 |
+| memory/ | 记忆 | 不放 |
+| diary/ | 日记 | 不放 |
+| product/ | 产出物 | 不放 |
+| desktop/ | 临时堆放 | **放这里** |
