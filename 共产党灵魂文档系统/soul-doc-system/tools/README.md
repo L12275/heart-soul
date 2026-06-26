@@ -1,6 +1,6 @@
 # 工具（Tools）
 
-> 模型的"工具箱"——脚本、CLI、程序、MCP的统一管理。
+> 模型的"工具箱"——脚本、CLI、程序、MCP、Hooks、API、智能体空间、网页的统一管理。
 > 模型越清楚有什么工具、怎么用，才越敢用、越高效。
 
 ## 文件夹结构
@@ -8,20 +8,29 @@
 ```
 tools/
 ├── README.md                    ← 本文件（工具总览）
-├── scripts/                     ← 脚本（Python/Bash等自动化脚本）
 ├── cli/                         ← CLI化工具（用CLI-Anything封装后的CLI命令）
-├── programs/                    ← 关联常用程序（只记录路径，不安装）
-├── mcp/                         ← MCP工具（自主LLM代理的主动工具发现）
-│   └── MCP-Zero-README.md       ← https://github.com/xfey/MCP-Zero
+│   └── https://github.com/HKUDS/CLI-Anything
+├── programs/                    ← 独立程序（Python脚本等）
+├── scripts/                     ← 维护脚本（同步/检查/备份）
+├── web-tools/                   ← 网页交互工具
 ├── computer-use/                ← Computer Use（GUI自动化，全控制电脑）
-│   ├── README.md                ← Computer Use总览（四条铁律+四级探测链+快速开始）
-│   ├── SOP.md                   ← 操作SOP（五步流程+坐标换算+故障排查）
 │   ├── ljqCtrl.py               ← GA原始Windows控制后端（177行，可直接import）
-│   ├── 原子工具集.md            ← 9个原子工具的用法+代码（基于真实 ljqCtrl.py）
-│   ├── Win32后端参考.md         ← 四个核心技术点详解（DPI/前台锁/像素验证/硬件级）
-│   ├── GA-ljqCtrl-SOP.md        ← GA原始 ljqCtrl 坐标转换SOP（直接引用）
-│   └── GA-computer_use.md       ← GA原始 computer_use 策略文档（直接引用）
-└── web-tools/                   ← 网页工具（待CLI化候选）
+│   ├── tools/                   ← 9个原子工具（screenshot/click/mouse_move等）
+│   ├── README.md                ← Computer Use总览
+│   ├── SOP.md                   ← 操作SOP
+│   ├── 原子工具集.md            ← 9个原子工具用法+代码
+│   ├── Win32后端参考.md         ← 四个核心技术点详解
+│   ├── GA-ljqCtrl-SOP.md        ← GA原始坐标转换SOP
+│   └── GA-computer_use.md       ← GA原始策略文档
+├── router/                      ← 路由器工具（代理/转发/流量控制）
+├── commands/                    ← 系统命令封装
+├── plugins/                     ← 可插拔功能模块
+├── api/                         ← API接口测试/封装/文档
+├── hooks/                       ← 事件钩子脚本
+├── mcp/                         ← MCP工具（自主LLM代理的主动工具发现）
+│   └── https://github.com/xfey/MCP-Zero
+├── associated-programs/         ← 关联常用程序（只记录路径，不安装）
+└── [未来扩展]                   ← 按需新增
 ```
 
 ## CLI化资源
@@ -34,17 +43,12 @@ tools/
 - 搜索已做成CLI的资源
 - 检查是否已有现成CLI再考虑自己封装
 
-| 项目 | URL | 说明 |
-|------|-----|------|
-| CLI-Anything | https://github.com/HKUDS/CLI-Anything | 自主实现随时CLI化任意程序、网页、工具 |
-| CLI资源搜索 | https://clianything.cc/ | 搜索已做成CLI的资源 |
-
 ## MCP工具
 
 **核心项目：[MCP-Zero](https://github.com/xfey/MCP-Zero)**
 - 自主LLM代理的主动工具发现
 - 在需要时可自行用MCP-Zero发现和集成新工具
-- 详细说明见 mcp/MCP-Zero-README.md
+- 详细说明见 mcp/ 文件夹
 
 ## Computer Use（GUI自动化）
 
@@ -56,8 +60,8 @@ tools/
 **实现方式：**
 - 在 tools/computer-use/ 下有详细说明和SOP
 - 模型根据需要自行使用computer_use功能
-- 详细说明见 computer-use/README.md
-- 操作SOP见 computer-use/SOP.md
+- 9个原子工具：screenshot, click, mouse_move, mouse_scroll, keyboard_input, window_activate, drag_drop, window_info, hotkey
+- 所有工具基于 ljqCtrl.py（GA原始Win32后端，177行）
 
 **关联资源：**
 | 项目 | URL | 说明 |
@@ -71,9 +75,7 @@ tools/
 
 | 程序 | 安装路径 | 文件夹结构 | 界面坐标导航 | 文档位置 |
 |------|----------|-----------|-------------|---------|
-| [待填] | [待填] | [待填] | [待填] | [待填] |
-| Chrome | C:\Program Files\Google\Chrome | Application\chrome.exe | 菜单书签栏→扩展→开发者工具 | [待填] |
-| Chromium | C:\Users\a1227\AppData\Local\Chromium\Application | chrome.exe | [待填] | [待填] |
+| Chromium | `C:\Users\a1227\AppData\Local\Chromium\Application\chrome.exe` | chrome.exe | [待填] | [待填] |
 
 ## 工具使用规则
 
@@ -84,9 +86,8 @@ tools/
 5. **已验证标注** — 实际使用过的标注"已验证"，未使用的标注"待验证"
 
 ---
-
 *工具清单*
-*创建时间：2026-06-24*
+*创建时间：2026-06-25*
 
 ---
 *最后更新：2026-06-26 21:18*
