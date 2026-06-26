@@ -490,4 +490,4 @@ For verifiable outputs, create structured evaluations comparing with-skill vs wi
 - [ ] A real user would find the output useful, not just spec-compliant
 
 ---
-*最后更新：2026-06-26 17:51*
+*最后更新：2026-06-26 21:18*

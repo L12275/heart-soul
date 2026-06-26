@@ -92,3 +92,6 @@ soul-doc-system/
 ## 更新：完整结构
 
 见 soul-doc-system/README.md 项目结构图
+
+---
+*最后更新：2026-06-26 21:18*

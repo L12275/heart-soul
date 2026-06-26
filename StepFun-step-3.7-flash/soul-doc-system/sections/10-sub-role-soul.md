@@ -342,4 +342,4 @@ genome/ 存放子角色的源头参考：
 *关联文件：sections/08-isolation.md（身份隔离）、wiki/score-penalty-rules.md*
 
 ---
-*最后更新：2026-06-26 17:52*
+*最后更新：2026-06-26 21:18*

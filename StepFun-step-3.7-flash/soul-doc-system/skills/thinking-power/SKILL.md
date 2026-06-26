@@ -107,4 +107,4 @@ user-zone/3自动建立灵魂提示文件.md     →  用户所有原话
 *关联：sections/09、sop/information-element-sop.md、user-zone/灵魂文档片段.md*
 
 ---
-*最后更新：2026-06-26 17:52*
+*最后更新：2026-06-26 21:18*

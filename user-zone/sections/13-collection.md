@@ -75,3 +75,6 @@ soul-doc-system/collection/
 
 *采集系统：sections/13-collection.md*
 *创建时间：2026-06-23*
+
+---
+*最后更新：2026-06-26 21:18*

@@ -41,4 +41,4 @@ macOS 定位链与 §1 一致，工具映射如下：
 - 节奏同 §2：先 ListWindows + AXElements 探测，确认控件后再操作；AXPress 优先，回退 Click(phys_cx, phys_cy)
 
 ---
-*最后更新：2026-06-26 17:51*
+*最后更新：2026-06-26 21:18*

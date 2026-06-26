@@ -39,4 +39,4 @@ agent-team-designer skill可以生成：
 - 团队设计skill：~/.hermes/skills/agent-team-designer/SKILL.md
 
 ---
-*最后更新：2026-06-26 17:52*
+*最后更新：2026-06-26 21:18*
