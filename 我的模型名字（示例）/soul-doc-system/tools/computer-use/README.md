@@ -130,3 +130,6 @@ ljqCtrl.Press('ctrl+v')
 
 *Computer Use 工具说明 — v4.1 基于真实 GA 代码*
 *核心项目：https://github.com/lsdefine/GenericAgent*
+
+---
+*最后更新：2026-06-26 17:51*

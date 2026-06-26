@@ -39,3 +39,6 @@ macOS 定位链与 §1 一致，工具映射如下：
 - 权限：首次使用需授予「辅助功能」权限（系统设置 > 隐私与安全 > 辅助功能）；`AXIsProcessTrusted()` 检测
 - 依赖：`pip install pyobjc-framework-ApplicationServices`（AX 相关，软依赖——未装时键鼠/截图正常，仅 AX 函数不可用）
 - 节奏同 §2：先 ListWindows + AXElements 探测，确认控件后再操作；AXPress 优先，回退 Click(phys_cx, phys_cy)
+
+---
+*最后更新：2026-06-26 17:51*

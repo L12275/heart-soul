@@ -330,3 +330,6 @@ pip install windows-capture
 
 *Win32 后端参考 — 基于 GA ljqCtrl.py 真实代码*
 *来源：https://github.com/lsdefine/GenericAgent*
+
+---
+*最后更新：2026-06-26 17:51*

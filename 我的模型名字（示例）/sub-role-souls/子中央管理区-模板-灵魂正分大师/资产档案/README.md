@@ -77,3 +77,6 @@ python 中央管理区/资产档案/scan.py
 - `.venv/`, `venv/`
 
 如需调整排除目录，修改 `scan.py` 中的 `exclude_dirs`。
+
+---
+*最后更新：2026-06-26 17:51*

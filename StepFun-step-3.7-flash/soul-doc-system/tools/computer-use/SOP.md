@@ -243,3 +243,6 @@ ljqCtrl.Click(screen_x, screen_y)
 
 *Computer Use 操作 SOP — 基于 GA ljqCtrl_sop.md + computer_use.md*
 *来源：https://github.com/lsdefine/GenericAgent*
+
+---
+*最后更新：2026-06-26 17:52*

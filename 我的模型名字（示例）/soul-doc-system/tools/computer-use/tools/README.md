@@ -36,3 +36,6 @@ python tools/window_activate.py "Chrome"
 # 测试截图
 python tools/screenshot.py -o test.png
 ```
+
+---
+*最后更新：2026-06-26 17:51*

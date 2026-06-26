@@ -202,3 +202,6 @@ cp -r soul-doc-system/{memory,diary,sop,workflow,desktop,product,temp}/ producti
 *通用功能模块拼搭SOP示例*
 *创建时间：2026-06-25*
 *触发：需要创建新的工作文件夹时*
+
+---
+*最后更新：2026-06-26 17:51*
