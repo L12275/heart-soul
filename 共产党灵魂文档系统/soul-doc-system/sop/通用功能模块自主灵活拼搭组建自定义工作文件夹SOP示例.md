@@ -124,13 +124,13 @@ cp -r sub-role-souls/新子角色/ sub-role-souls/新子角色2/
 **示例：两个需要相同模块组合的团队Agent**
 ```bash
 # 1. 拼搭第一个
-mkdir -p 团队/会话临时子代理区/agent-A/
-cp -r soul-doc-system/memory/ 团队/会话临时子代理区/agent-A/memory/
-cp -r soul-doc-system/diary/ 团队/会话临时子代理区/agent-A/diary/
-cp -r soul-doc-system/workflow/ 团队/会话临时子代理区/agent-A/workflow/
+mkdir -p 团队空间/会话临时子代理区/agent-A/
+cp -r soul-doc-system/memory/ 团队空间/会话临时子代理区/agent-A/memory/
+cp -r soul-doc-system/diary/ 团队空间/会话临时子代理区/agent-A/diary/
+cp -r soul-doc-system/workflow/ 团队空间/会话临时子代理区/agent-A/workflow/
 
 # 2. 复制并改名（不是重新拼搭）
-cp -r 团队/会话临时子代理区/agent-A/ 团队/会话临时子代理区/agent-B/
+cp -r 团队空间/会话临时子代理区/agent-A/ 团队空间/会话临时子代理区/agent-B/
 # agent-B 继承 agent-A 的完整模块组合
 # 在 agent-B/ 中只改需要差异的部分
 ```
@@ -199,7 +199,64 @@ cp -r soul-doc-system/{memory,diary,sop,workflow,desktop,product,temp}/ producti
 
 ---
 
-## 六、与各环区的关联
+## 六、智能体空间拼搭（特殊模式）
+
+> **智能体空间 = 衣柜（模板仓库）+ 大厅（运行区）。拼搭时不能只复制智能体空间本身，必须配备配套模块。**
+
+### 为什么智能体空间需要特殊拼搭
+
+智能体空间本身只提供"智能体管理"能力（模板存储+运行区），但智能体运行时需要记忆、日记、产出、SOP、工作流等基础模块。这些模块不在智能体空间内部，必须从通用区复制拼搭。
+
+### 拼搭步骤
+
+```
+在目标位置创建智能体工作区：
+  1. 创建 `智能体空间/` 文件夹（自己创建，不是复制）
+  2. 从源位置的 `智能体空间/衣柜/` 复制需要的模板到新位置的 `智能体空间/衣柜/`
+  3. 从通用区复制配套模块到新位置：
+     ├── memory/    ← 记忆模块（L0-L4分层）
+     ├── diary/     ← 日记模块
+     ├── product/   ← 产物模块
+     ├── sop/       ← SOP模块（必须包含最强脑师三合一SOP）
+     └── workflow/  ← 工作流模块
+  4. 从 `智能体空间/衣柜/` 复制模板到 `智能体空间/大厅/活跃/[名称]/`
+  5. 在大厅副本中微调配置
+  6. 启动运行
+```
+
+### 拼搭检查清单（智能体空间专用）
+
+- [ ] 是否创建了 `智能体空间/` 文件夹？
+- [ ] 是否从源位置复制了需要的衣柜模板？
+- [ ] 是否复制了 `memory/` 模块？
+- [ ] 是否复制了 `diary/` 模块？
+- [ ] 是否复制了 `product/` 模块？
+- [ ] 是否复制了 `sop/` 模块（含最强脑师三合一SOP）？
+- [ ] 是否复制了 `workflow/` 模块？
+- [ ] 是否从衣柜复制模板到大厅活跃区？
+- [ ] 灵魂继承是否正确？（通用区→主灵魂，子角色区→子角色灵魂）
+
+### 拼搭示例
+
+**场景：在团队工作区创建一个智能体**
+
+```text
+团队空间/会话临时子代理区/agent-A/
+├── 智能体空间/              ← 自己创建的
+│   ├── 衣柜/                ← 从主智能体空间复制模板
+│   │   └── 通用智能体/
+│   └── 大厅/
+│       └── 活跃/
+│           └── agent-A/
+├── memory/                  ← 从通用区复制
+├── diary/                   ← 从通用区复制
+├── sop/                     ← 从通用区复制
+└── workflow/                ← 从通用区复制
+```
+
+---
+
+## 七、与各环区的关联
 
 | 环区 | 拼搭场景 | 参考此SOP |
 |------|---------|----------|
@@ -210,6 +267,7 @@ cp -r soul-doc-system/{memory,diary,sop,workflow,desktop,product,temp}/ producti
 | ⑤ 空间中心 | 新建账号空间 | **按此SOP拼搭** |
 | ⑥ 子角色中心 | 新建子角色 | **按此SOP拼搭** |
 | ⑦ 团队协作环 | 新建团队Agent | **按此SOP拼搭** |
+| ⑧ 智能体空间 | 新建智能体（需配备memory/diary/product/sop/workflow） | **按此SOP拼搭（特殊模式）** |
 
 ---
 
