@@ -50,7 +50,7 @@
 4. **推送规则** — 模型如何推送自己的隔离区到远程仓库
 5. **快速开始** — 新模型进入系统的步骤（读取 INITIAL-SEED.md → 进入隔离区 → 读取 master-soul.md）
 6. **七环架构** — 系统运行时的七个环的说明（用户中心、共产中心、主灵魂中心、生产空间工作台、空间中心、子角色中心、团队协作环）
-7. **模块地图** — 列出所有功能模块（memory/、diary/、sop/、workflow/、product/、skills/、tools/、bookmarks/、contacts/、temp/、sticky-notes/、experience/、discovery/、research/、collection/、automation/、desktop/、仿复融合与发明自研/）
+7. **模块地图** — 列出所有功能模块（memory/、diary/、sop/、workflow/、product/、skills/、tools/、bookmarks/、contacts/、temp/、sticky-notes/、experience/、discovery/、research/、collection/、automation/、desktop/）
 8. **版本信息** — 当前系统版本、最后更新时间、更新记录
 
 **README.md 的标准结构**（来自实际系统）：

@@ -546,6 +546,7 @@ AI必须主动执行以下操作：
 | 采集 collection | soul-doc-system/collection/ | ✅ | ✅ |
 | 自动化 automation | soul-doc-system/automation/ | ✅ | ✅ |
 | 桌面 desktop | soul-doc-system/desktop/ | ✅ | ✅ |
+| 仿复融合与发明自研 | soul-doc-system/仿复融合与发明自研/ | ✅ | ✅ |
 
 **同步流程：**
 1. 编辑通用区的功能模块文件夹
