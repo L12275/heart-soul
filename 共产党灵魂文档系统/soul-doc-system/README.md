@@ -214,12 +214,12 @@ soul-doc-system/
 ## 快速开始
 
 复制 `soul-doc-system/` 到用户指定的位置，指定模型将其作为自己的主灵魂文档系统。
-模型每次加载时读取 system-prompt.md → 自定位 → 读取 master-soul.md → 开始按六环模式工作。
+模型每次加载时读取 system-prompt.md → 自定位 → 读取 master-soul.md → 开始按八环八驱动模式工作。
 
 ---
 
 *soul-doc-system/README.md*
-*v4.0 六环架构版*
+*v4.0 八环八驱动架构版*
 
 ---
 *更新时间：2026-06-26T21:18*
