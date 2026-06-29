@@ -30,11 +30,12 @@
 > **创建时间**：2026-06-27T20:42
 > **更新时间**：2026-06-27T23:30
 > 每次更新文件，就要同时更新时间戳
-过河桥 — [CENTRAL_PATH] 解析
 
-> 此过河桥解决核心问题：[CENTRAL_PATH] 是占位符，不是真实路径。
-> 模型必须先在运行时将其解析为实际路径，才能走后续通路。
-> 每台电脑的路径不同，此过河桥保证跨机器移植不出错。
+# 过河桥 — [CENTRAL_PATH] 解析
+
+> **此过河桥记录我对 [CENTRAL_PATH] 实际解析过程的理解。**
+> [CENTRAL_PATH] 不是环境变量，不是注册表项——它是一个占位符。
+> 每台电脑的路径不同，模型必须在运行时将其解析为实际路径，才能走后续通路。
 
 ---
 
@@ -51,18 +52,20 @@ system-prompt.md 中的定位说明：
 
 **[CENTRAL_PATH] = 中央灵魂文档系统根目录的物理路径**
 
-它不是环境变量，不是注册表项，不是配置文件。它是一个**占位符**，模型在首次加载时必须将其替换为实际路径。
-
-**解析后的路径长这样**：
+当前系统实际的路径结构：
 ```
-Windows: C:\Users\a1227\.halo\temp\artifacts\中央灵魂文档系统
-Mac:     /Users/xxx/.halo/temp/artifacts/中央灵魂文档系统
-Linux:   /home/xxx/.halo/temp/artifacts/中央灵魂文档系统
+C:\Users\a1227\.halo\temp\artifacts\中央灵魂文档系统/
+├── INITIAL-SEED.md          ← 总区种子（权威源，只读）
+├── README.md                ← 系统总览
+├── soul-doc-system/         ← 系统原型参考（总区，只读）
+├── user-zone/               ← 用户专用区（四驱动：地平面）
+├── 合流共赢大同/    ← 模型隔离区示例
+├── StepFun-step-3.7-flash/  ← 模型隔离区
+├── 共产党灵魂文档系统/      ← 共产中央交换机
+└── archive/                 ← 归档区
 ```
 
----
-
-## 3. 解析步骤（完整流程）
+**解析步骤（6步）**：
 
 ```
 第1步：收到系统提示词
@@ -73,6 +76,7 @@ Linux:   /home/xxx/.halo/temp/artifacts/中央灵魂文档系统
   → 在电脑上搜索名为 "system-prompt.md" 的文件
   → 路径线索：此文件在 soul-doc-system/ 文件夹内
   → 搜索目标：找到包含本系统提示词内容的 system-prompt.md
+  → 当前系统中的位置：.../中央灵魂文档系统/soul-doc-system/system-prompt.md
 
 第3步：验证文件
   → 确认文件内容与本系统提示词意思一致
@@ -97,7 +101,7 @@ Linux:   /home/xxx/.halo/temp/artifacts/中央灵魂文档系统
 
 ---
 
-## 4. 可能的歧义
+## 3. 可能的歧义
 
 | 歧义 | 说明 | 解决 |
 |------|------|------|
@@ -106,19 +110,19 @@ Linux:   /home/xxx/.halo/temp/artifacts/中央灵魂文档系统
 | 文件结构不完整 | 只有部分文件 | 如果有 INITIAL-SEED.md → 可以新生系统；否则请用户检查 |
 | 路径不安全 | 在临时文件夹、网络盘 | 询问用户是否迁移到安全位置 |
 | 不知道如何搜索 | 模型没有文件系统访问权限 | 请用户提供系统路径，模型只负责后续使用 |
-| 路径有特殊字符 | 中文、空格、Unicode | 用引号包裹路径，Python/代码中正确处理 |
+| 路径有特殊字符 | 中文、空格、Unicode | 用引号包裹路径，正确处理 |
 
 ---
 
-## 5. 我的判断
+## 4. 我的判断
 
 **解析 [CENTRAL_PATH] 的标准动作**：
 
 1. **先搜**：搜索 system-prompt.md
-2. **再验**：确认内容和版本
+2. **再验**：确认内容和版本一致
 3. **推导**：soul-doc-system/ 的上级目录 = [CENTRAL_PATH]
 4. **验证**：检查 INITIAL-SEED.md、user-zone/ 是否存在
-5. **替换**：所有 [CENTAL_PATH] 替换为实际路径
+5. **替换**：所有 [CENTRAL_PATH] 替换为实际路径
 6. **问**：搜不到 → 直接问用户路径，不瞎猜
 
 **绝对不能**：
@@ -128,7 +132,7 @@ Linux:   /home/xxx/.halo/temp/artifacts/中央灵魂文档系统
 
 ---
 
-## 6. 等待确认
+## 5. 等待确认
 
 - [ ] 是否搜到了 system-prompt.md？
 - [ ] 推导出的 [CENTRAL_PATH] 是否包含 INITIAL-SEED.md？
@@ -137,5 +141,5 @@ Linux:   /home/xxx/.halo/temp/artifacts/中央灵魂文档系统
 ---
 
 *过河桥 — [CENTRAL_PATH] 解析*
-*创建时间：2026-06-27T19:30*
+*创建时间：2026-06-27T20:42*
 *关联：文件抬头模板 v3.1 | system-prompt.md 定位说明 | 公网入口走流程全程*
