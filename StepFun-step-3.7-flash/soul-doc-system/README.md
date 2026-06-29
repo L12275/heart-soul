@@ -159,7 +159,7 @@ soul-doc-system/
 > **子角色灵魂文档系统** (`sub-role-souls/`) 与 `soul-doc-system/` **同级**，不在 soul-doc-system 内部。这样子角色文件与主灵魂文件物理隔离，避免子角色操作误删/误改主灵魂内容。
 
 ```
-我的模型名字（示例）/
+StepFun-step-3.7-flash/
 ├── soul-doc-system/       ← 主灵魂文档系统
 │   ├── master-soul.md
 │   ├── system-prompt.md

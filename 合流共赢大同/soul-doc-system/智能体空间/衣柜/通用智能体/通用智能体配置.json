@@ -1,0 +1,20 @@
+{
+  "name": "通用智能体",
+  "description": "通用任务执行智能体",
+  "version": "1.0",
+  "permissions": ["read", "write", "execute"],
+  "sub_agents": [],
+  "tools": [],
+  "memory": {
+    "type": "L0-L4",
+    "context_path": "memory/context/",
+    "daily_path": "memory/daily/"
+  },
+  "diary": {
+    "path": "diary/"
+  },
+  "sop": {
+    "path": "sop/",
+    "required": ["世界最强脑师-前置思考系统", "顶级机会做法SOP", "超级信息SOP"]
+  }
+}
